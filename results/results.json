@@ -107,7 +107,7 @@
     "tau_mean": -0.8002666666666667,
     "tau_std": 0.08013833983516395
   },
-  "v2_procrustes": {
+  "procrustes": {
     "m2": 0.17866575812402366,
     "p_one_sided": 0.0,
     "n_perm": 10000,
@@ -116,7 +116,7 @@
     "null_p025": 0.5457200194106839,
     "null_p975": 0.9987536011577953
   },
-  "v2_mantel": {
+  "mantel": {
     "mantel_r": 0.7667133119508678,
     "p_one_sided": 0.0,
     "n_perm": 10000,
@@ -125,7 +125,7 @@
     "null_p025": -0.2376728447582103,
     "null_p975": 0.3726999324757861
   },
-  "v2_constrained_perm_null": {
+  "constrained_perm_null": {
     "applicable": true,
     "tau_obs": -0.911111111111111,
     "n_admissible": 4320,
@@ -138,7 +138,7 @@
     "null_p025": -0.7333333333333333,
     "null_p975": -0.15555555555555553
   },
-  "v2_bayes_factors": {
+  "bayes_factors": {
     "log_p_uniform": -15.104412573075516,
     "log_p_meter": -8.371010681238156,
     "log_p_geog": {

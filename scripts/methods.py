@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
-Statistical methods v2 for the Nadīstuti-sūkta analysis.
+Statistical methods for the geographic-encoding analysis.
 
-This module adds three methods recommended by the methods-audit review:
+This module holds the four methods used alongside the plain Kendall's
+τ permutation test:
 
   1. procrustes_test          Procrustes / PROTEST superimposition with a
                               permutation null. Eliminates the lat/lon
-                              redundancy of the v1 Kendall-τ-against-longitude
-                              and Kendall-τ-against-latitude pair.
+                              redundancy of testing Kendall τ against
+                              longitude and latitude separately.
 
   2. constrained_perm_null    Permutation null restricted to orderings that
                               match the syllable-shape pattern of the verse's
@@ -187,9 +188,9 @@ def constrained_perm_null(verse_rank: np.ndarray, geo_value: np.ndarray,
       * Otherwise, draw `MAX_ENUM` shape-preserving permutations uniformly
         at random (need an rng).
       * If all shapes are equal, the "constraint" reduces to the uniform
-        permutation set — equivalent to the v1 Kendall permutation null —
-        and we return `applicable: False` to signal this is not a meaningful
-        constraint for the corpus.
+        permutation set — equivalent to the plain Kendall permutation
+        null — and we return `applicable: False` to signal this is not a
+        meaningful constraint for the corpus.
     """
     n_admissible = _count_admissible(shapes)
     tau_obs, _ = kendalltau(verse_rank, geo_value)

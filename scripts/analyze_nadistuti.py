@@ -31,9 +31,9 @@ import numpy as np
 import pandas as pd
 from scipy.stats import kendalltau
 
-# Allow `from methods_v2 import ...` when run from any CWD.
+# Allow `from methods import ...` when run from any CWD.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from methods_v2 import (
+from methods import (
     bayes_factors,
     constrained_perm_null,
     mantel_test,
@@ -204,7 +204,7 @@ def main() -> int:
         "tau_std":  float(taus.std(ddof=1)),
     }
 
-    # ---------- v2 methods: Procrustes, Mantel, constrained-perm, Bayes factors ----------
+    # ---------- Procrustes, Mantel, constrained-permutation null, Bayes factors ----------
     coords = np.column_stack([lons, lats])
     procrustes_res = procrustes_test(verse_rank, coords, rng)
     mantel_res = mantel_test(verse_rank, coords, rng)
@@ -225,10 +225,10 @@ def main() -> int:
         "sensitivity_paleo": sens_paleo,
         "sensitivity_ids": id_results,
         "sensitivity_perturbation": sens_pert,
-        "v2_procrustes": procrustes_res,
-        "v2_mantel": mantel_res,
-        "v2_constrained_perm_null": constrained_res,
-        "v2_bayes_factors": bf_res,
+        "procrustes": procrustes_res,
+        "mantel": mantel_res,
+        "constrained_perm_null": constrained_res,
+        "bayes_factors": bf_res,
         "null_distribution_samples": null_samples.tolist(),
     }
 
@@ -261,7 +261,7 @@ def main() -> int:
 
     print()
     print("=" * 60)
-    print("v2 methods")
+    print("Procrustes / Mantel / constrained-permutation / Bayes factors")
     print("=" * 60)
     print(f"\nProcrustes / PROTEST")
     print(f"  m² = {procrustes_res['m2']:.4f}   p (one-sided) = {procrustes_res['p_one_sided']:.4f}")

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-Figure 2 (v2 paper) — four-panel comparative summary of geographic-encoding
-strength across the four corpora.
+Figure 2 — four-panel comparative summary of geographic-encoding
+strength, one panel per corpus.
 
-  Top:    verse-rank vs longitude scatter for each corpus.
-  Bottom: caption-style summary of τ, Procrustes m², Bayes factor.
+Each panel: sequence-position vs longitude scatter, a linear fit, and
+the corpus's Kendall τ and Procrustes m² annotated.
 
 Outputs: figures/fig2_corpus_comparison.pdf
 """
@@ -62,16 +62,16 @@ def load_corpus(c: dict) -> tuple[np.ndarray, np.ndarray, dict]:
 
     res = json.loads(c["results"].read_text())
     if c["results_key_primary"]:
-        # v1 results.json schema
+        # results.json schema (RV 10.75.5): Kendall under a top-level key,
+        # Procrustes under "procrustes".
         prim = res[c["results_key_primary"]]
         tau = prim["tau"]
         p = prim["p_two_sided"]
-        # Procrustes is in v2_procrustes
-        proc = res.get("v2_procrustes", {})
+        proc = res.get("procrustes", {})
         m2 = proc.get("m2")
         p_proc = proc.get("p_one_sided")
     else:
-        # v2 per-corpus schema
+        # per-corpus schema: Kendall under kendall_axis.longitude.
         ka = res["kendall_axis"]["longitude"]
         tau = ka["tau"]
         p = ka["p_two_sided"]

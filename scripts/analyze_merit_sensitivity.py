@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Sensitivity check: re-run the V2 statistical pipeline using MERIT-Hydro-
+Sensitivity check: re-run the statistical pipeline using MERIT-Hydro-
 derived centroids instead of OpenStreetMap polyline centroids, and
 report whether the headline τ is robust.
 
@@ -11,14 +11,13 @@ Inputs:
   data/paleocourse_coords.csv        (kept for Sarasvatī paleo variant)
 
 Outputs:
-  results/per_corpus/rv_merit.json   full v2 results on MERIT centroids
-  results/merit_sensitivity_table.txt   side-by-side table
+  results/per_corpus/rv_merit.json     results on MERIT centroids
+  results/merit_sensitivity_table.txt  side-by-side OSM/MERIT table
 
-The script is a thin wrapper around analyze_corpus.py: it builds an
-input CSV using MERIT longitudes/latitudes for the 9 rivers MERIT
-provides, plus the OSM coordinate for Marudvṛdhā (which is hand-
-curated and never had an OSM polyline to begin with), and runs the
-same v2 method battery as the other corpora.
+It builds an input set using MERIT longitudes/latitudes for the nine
+rivers MERIT provides, plus the OSM coordinate for Marudvṛdhā (which
+is hand-curated and never had an OSM polyline), and runs the same
+Kendall / Procrustes / Mantel battery used for the other corpora.
 """
 
 from __future__ import annotations
@@ -42,7 +41,7 @@ def main() -> int:
     if not MERIT_CSV.exists():
         sys.stderr.write(
             f"{MERIT_CSV} not found. Run scripts/fetch_river_coords_merit.py "
-            f"first (and see docs/MERIT_HYDRO_TODO.md for the manual "
+            f"first (and see docs/merit-hydro.md for the manual "
             f"download step).\n"
         )
         return 1
@@ -58,7 +57,7 @@ def main() -> int:
         if pos in merit_lookup:
             m = merit_lookup[pos]
             lon, lat = m["merit_lon"], m["merit_lat"]
-            source = "MERIT-Hydro upa-weighted"
+            source = "MERIT-Hydro (unweighted centroid)"
         else:
             lon, lat = r["centroid_lon"], r["centroid_lat"]
             source = "OSM (no MERIT for this position)"
@@ -73,9 +72,9 @@ def main() -> int:
     df = pd.DataFrame(rows)
     df.to_csv(COMBINED_CSV, index=False)
 
-    # Run the same v2 analysis pipeline.
+    # Run the same Kendall / Procrustes / Mantel battery.
     sys.path.insert(0, str(Path(__file__).resolve().parent))
-    from methods_v2 import procrustes_test, mantel_test
+    from methods import procrustes_test, mantel_test
     from scipy.stats import kendalltau
 
     verse_rank = df["position"].to_numpy()
@@ -108,8 +107,8 @@ def main() -> int:
     # Load OSM baseline for comparison.
     rv_osm = json.loads((REPO_ROOT / "results" / "results.json").read_text())
     osm_primary = rv_osm["primary"]
-    osm_proc = rv_osm["v2_procrustes"]
-    osm_mantel = rv_osm["v2_mantel"]
+    osm_proc = rv_osm["procrustes"]
+    osm_mantel = rv_osm["mantel"]
 
     lines = [
         "MERIT-Hydro vs. OSM sensitivity (RV 10.75.5)",

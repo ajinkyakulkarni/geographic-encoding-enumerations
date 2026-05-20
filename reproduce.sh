@@ -8,7 +8,7 @@
 # external download is the MERIT-Hydro re-derivation
 # (scripts/fetch_river_coords_merit.py) — that is NOT run here; the
 # resulting data/river_coordinates_merit.csv is provided, and the
-# MERIT sensitivity check below consumes it. See docs/MERIT_HYDRO_TODO.md
+# MERIT sensitivity check below consumes it. See docs/merit-hydro.md
 # to regenerate that file from the raw NASA-SRTM tiles.
 #
 # Usage:  ./reproduce.sh

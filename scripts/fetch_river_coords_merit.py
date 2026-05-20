@@ -1,49 +1,44 @@
 #!/usr/bin/env python3
 """
-Derive river centroids for the ten Ṛgveda 10.75.5 rivers from
-MERIT-Hydro (NASA-SRTM-derived global hydrography) upstream-drainage-
-area (upa) rasters. Used for the V2-paper sensitivity check that the
-result is robust to switching coordinate source from OpenStreetMap
+Derive river centroids for the Ṛgveda 10.75.5 rivers from MERIT-Hydro
+(NASA-SRTM-derived global hydrography) upstream-drainage-area (upa)
+rasters. This supports the sensitivity check that the headline result
+is robust to switching the coordinate source from OpenStreetMap
 polylines to NASA-SRTM-derived hydrography.
 
 For each river, the script:
   1. Reads the upa GeoTIFF tiles covering the bounding box of the
-     OSM-derived polyline (with a 1° buffer).
-  2. Selects pixels with upa exceeding a per-river threshold (rivers
-     are large so upa > 1000 km² works for the major Punjab rivers;
-     a smaller threshold is used for the minor tributaries).
-  3. Of those high-upa pixels, retains only those within 0.3° of any
-     OSM polyline node — this disambiguates from neighboring rivers.
-  4. Computes the upa-weighted centroid as the MERIT-Hydro centroid.
+     OSM-derived polyline (with a 0.5° buffer).
+  2. Selects pixels whose upa exceeds a per-river river-network
+     threshold (≈1000 km² for the major Punjab rivers; smaller for
+     the minor tributaries).
+  3. Of those, keeps only pixels within 0.2° of an OSM polyline node,
+     which disambiguates the target river from its neighbours.
+  4. Takes the *unweighted* centroid (mean of the kept pixels). Not
+     upa-weighted: weighting by drainage area would pull the centroid
+     of a long river downstream toward its high-accumulation lower
+     reaches, which is not the "where is this river" summary the test
+     needs.
 
-Output: data/river_coordinates_merit.csv with columns:
+Output: data/river_coordinates_merit.csv with columns
   position, vedic_name, identified_river, merit_lon, merit_lat,
   osm_lon, osm_lat, distance_km, n_pixels, threshold_km2
 
-License attribution. MERIT-Hydro is distributed under CC-BY-NC 4.0
-(Yamazaki et al. 2019). All derived coordinates in this CSV inherit
-the non-commercial restriction. Cite Yamazaki et al. 2019 in any
-downstream use.
+The committed data/river_coordinates_merit.csv lets the downstream
+sensitivity check run with no download. Regenerating it from the raw
+tiles needs the MERIT-Hydro registration and download described in
+docs/merit-hydro.md; in brief:
 
-USAGE.
+  1. Register at https://global-hydrodynamics.github.io/MERIT_Hydro/
+     and accept the CC-BY-NC 4.0 licence.
+  2. Download the upstream-drainage-area (upa) tar packages covering
+     0°–60°N, 60°–90°E and extract them into data/merit_hydro/ (tiles
+     unpack into per-package subdirectories).
+  3. Run:  python3 scripts/fetch_river_coords_merit.py
 
-  1. Register for MERIT-Hydro:
-       https://global-hydrodynamics.github.io/MERIT_Hydro/
-     Get a password.
-
-  2. Download the two upa tar packages covering our region:
-       https://www.dropbox.com/scl/fo/.../v1.0.1/upa_n00e060.tar
-       https://www.dropbox.com/scl/fo/.../v1.0.1/upa_n30e060.tar
-     (Specific URLs in docs/MERIT_HYDRO_TODO.md after registration.)
-
-  3. Extract both tars into data/merit_hydro/:
-       cd data/merit_hydro
-       tar xf upa_n00e060.tar
-       tar xf upa_n30e060.tar
-     This will produce 5°×5° tiles named like upa_n25e070.tif.
-
-  4. Run this script:
-       python3 scripts/fetch_river_coords_merit.py
+License: MERIT-Hydro is CC-BY-NC 4.0 (Yamazaki et al. 2019). The
+derived CSV inherits the non-commercial restriction; cite Yamazaki
+et al. 2019 in any downstream use.
 """
 
 from __future__ import annotations
@@ -238,7 +233,7 @@ def main() -> int:
     if not MERIT_DIR.is_dir() or not any(MERIT_DIR.rglob("*_upa.tif")):
         sys.stderr.write(
             f"No MERIT-Hydro upa tiles found under {MERIT_DIR}.\n"
-            f"See docs/MERIT_HYDRO_TODO.md for download instructions.\n"
+            f"See docs/merit-hydro.md for download instructions.\n"
         )
         return 1
 

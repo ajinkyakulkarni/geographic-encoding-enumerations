@@ -1,11 +1,11 @@
 position,vedic_name,identified_river,centroid_lon,centroid_lat,source
-1,Gaṅgā,Ganges,83.5305,26.111,MERIT-Hydro upa-weighted
-2,Yamunā,Yamuna,78.8798,27.1628,MERIT-Hydro upa-weighted
-3,Sarasvatī,Ghaggar-Hakra,75.1539,29.6687,MERIT-Hydro upa-weighted
-4,Śutudrī,Sutlej,76.666,31.2508,MERIT-Hydro upa-weighted
-5,Paruṣṇī,Ravi,74.0518,31.4806,MERIT-Hydro upa-weighted
-6,Asiknī,Chenab,73.1529,31.4168,MERIT-Hydro upa-weighted
+1,Gaṅgā,Ganges,83.5305,26.111,MERIT-Hydro (unweighted centroid)
+2,Yamunā,Yamuna,78.8798,27.1628,MERIT-Hydro (unweighted centroid)
+3,Sarasvatī,Ghaggar-Hakra,75.1539,29.6687,MERIT-Hydro (unweighted centroid)
+4,Śutudrī,Sutlej,76.666,31.2508,MERIT-Hydro (unweighted centroid)
+5,Paruṣṇī,Ravi,74.0518,31.4806,MERIT-Hydro (unweighted centroid)
+6,Asiknī,Chenab,73.1529,31.4168,MERIT-Hydro (unweighted centroid)
 7,Marudvṛdhā,uncertain (Maruvardhā / Chenab-area tributary),73.1,32.2,OSM (no MERIT for this position)
-8,Vitastā,Jhelum,73.4011,33.1336,MERIT-Hydro upa-weighted
-9,Ārjīkīyā,Haro (Witzel),72.6629,33.8707,MERIT-Hydro upa-weighted
-10,Suṣomā,Soan (Sohan / Sawan),72.5039,33.2586,MERIT-Hydro upa-weighted
+8,Vitastā,Jhelum,73.4011,33.1336,MERIT-Hydro (unweighted centroid)
+9,Ārjīkīyā,Haro (Witzel),72.6629,33.8707,MERIT-Hydro (unweighted centroid)
+10,Suṣomā,Soan (Sohan / Sawan),72.5039,33.2586,MERIT-Hydro (unweighted centroid)

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Corpus-generic analyzer — runs the v2 method battery on any enumerative
-corpus given as a CSV.
+Corpus-generic analyzer — runs the full method battery (Kendall's tau,
+Procrustes, Mantel, Bayes factors) on any enumerative corpus given as
+a CSV.
 
 The corpus CSV must have columns:
     position             1..n verse/list position (integer)
@@ -33,9 +34,9 @@ import numpy as np
 import pandas as pd
 from scipy.stats import kendalltau
 
-# Allow `from methods_v2 import ...` regardless of CWD.
+# Allow `from methods import ...` regardless of CWD.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from methods_v2 import (
+from methods import (
     bayes_factors,
     constrained_perm_null,
     mantel_test,

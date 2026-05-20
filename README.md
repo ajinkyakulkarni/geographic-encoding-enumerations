@@ -72,7 +72,7 @@ For example, the headline τ = −0.911:
 | 7 | `scripts/make_table.py` | `tables/sensitivity_table.tex` |
 | 8 | `verify_claims.py` | PASS/FAIL table over all 35 paper claims |
 
-`scripts/methods_v2.py` holds the shared method implementations
+`scripts/methods.py` holds the shared method implementations
 (Procrustes/PROTEST, Mantel, constrained-permutation null, Bayes
 factors with a Mallows model).
 
@@ -97,7 +97,7 @@ results/
   results.json               RV 10.75.5 — every reported number
   per_corpus/*.json          the other corpora + subsections + MERIT check
 figures/, tables/            regenerated figure and table artifacts
-docs/MERIT_HYDRO_TODO.md      how to regenerate the MERIT-Hydro centroids
+docs/merit-hydro.md      how to regenerate the MERIT-Hydro centroids
 ```
 
 ## Data sources
@@ -110,7 +110,7 @@ docs/MERIT_HYDRO_TODO.md      how to regenerate the MERIT-Hydro centroids
   derived from MERIT-Hydro (Yamazaki et al. 2019), a NASA-SRTM-derived
   global hydrography product distributed under CC-BY-NC 4.0. The
   derived file inherits the non-commercial restriction; regenerating
-  it from the raw tiles needs the steps in `docs/MERIT_HYDRO_TODO.md`.
+  it from the raw tiles needs the steps in `docs/merit-hydro.md`.
 - **Corpus identifications** — every place/people identification in
   `corpora/` and in the paleocourse file carries a per-row `source`
   or `provenance` column citing the scholarly work it comes from.
