@@ -74,7 +74,7 @@ RIVERS: list[RiverSpec] = [
                    "treats the referent as uncertain. Sensitivity analysis "
                    "(i) tests alternative IDs and a drop-position-7 variant."),
     RiverSpec(8,  "Vitastā",    "Jhelum",   ["Jhelum"]),
-    RiverSpec(9,  "Ārjīkīyā",   "Haro (Witzel)", ["Haro", "Haro River"]),
+    RiverSpec(9,  "Ārjīkīyā",   "Haro", ["Haro", "Haro River"]),
     RiverSpec(10, "Suṣomā",     "Soan (Sohan / Sawan)",
               ["Sawan", "Suwaan", "Swaan"]),
 ]

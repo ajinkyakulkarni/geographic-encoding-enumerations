@@ -80,7 +80,7 @@ RIVER_SPECS = [
     (6,  "Asiknī",       "Chenab",          "chenab.json",   3_000),
     # Marudvṛdhā: hand-curated in OSM analysis; we skip MERIT here.
     (8,  "Vitastā",      "Jhelum",          "jhelum.json",   2_000),
-    (9,  "Ārjīkīyā",     "Haro (Witzel)",   "haro.json",     500),
+    (9,  "Ārjīkīyā",     "Haro",   "haro.json",     500),
     (10, "Suṣomā",       "Soan (Sawan)",    "sawan.json",    500),
 ]
 
