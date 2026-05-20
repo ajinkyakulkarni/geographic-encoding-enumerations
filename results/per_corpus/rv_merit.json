@@ -1,0 +1,27 @@
+{
+  "n_items": 10,
+  "kendall_lon": {
+    "tau": -0.8666666666666666,
+    "p_two_sided": 0.0001,
+    "n_perm": 10000
+  },
+  "procrustes": {
+    "m2": 0.22711252328486237,
+    "p_one_sided": 0.0,
+    "n_perm": 10000,
+    "null_mean": 0.8889041936933216,
+    "null_std": 0.12338624117246517,
+    "null_p025": 0.5474560031410363,
+    "null_p975": 0.9986501849495727
+  },
+  "mantel": {
+    "mantel_r": 0.7152552999164271,
+    "p_one_sided": 0.0,
+    "n_perm": 10000,
+    "null_mean": 0.003136274507556124,
+    "null_std": 0.17380289465446774,
+    "null_p025": -0.2401361506194238,
+    "null_p975": 0.3907011747470623
+  },
+  "source_csv": "data/river_coordinates_merit_combined.csv"
+}

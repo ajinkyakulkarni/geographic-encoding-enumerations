@@ -1,0 +1,82 @@
+{
+  "corpus_csv": "corpora/avesta_fargard1/lands.csv",
+  "n_items": 16,
+  "metadata": {
+    "seed": 20260518,
+    "n_perm": 10000,
+    "scipy_kendalltau": "scipy.stats.kendalltau (tau-b)"
+  },
+  "kendall_axis": {
+    "longitude": {
+      "tau": -0.11666666666666665,
+      "p_two_sided": 0.5613,
+      "n_perm": 10000,
+      "null_mean": 0.0010316666666666666,
+      "null_std": 0.18505164164334337
+    },
+    "latitude": {
+      "tau": -0.3765723339400754,
+      "p_two_sided": 0.0506,
+      "n_perm": 10000,
+      "null_mean": -0.0007531446678801508,
+      "null_std": 0.1875959800160148
+    },
+    "pc1": {
+      "tau": 0.06666666666666667,
+      "p_two_sided": 0.7552,
+      "n_perm": 10000,
+      "null_mean": 0.00048333333333333323,
+      "null_std": 0.18384544134549335
+    }
+  },
+  "procrustes": {
+    "m2": 0.9749678950132871,
+    "p_one_sided": 0.6661,
+    "n_perm": 10000,
+    "null_mean": 0.9332773582986609,
+    "null_std": 0.07059088681752981,
+    "null_p025": 0.7347894739410437,
+    "null_p975": 0.9985129883980123
+  },
+  "mantel": {
+    "mantel_r": 0.11226611087099302,
+    "p_one_sided": 0.1524,
+    "n_perm": 10000,
+    "null_mean": -0.0007362182596122635,
+    "null_std": 0.11081861336146759,
+    "null_p025": -0.1916231424492746,
+    "null_p975": 0.23785036405247248
+  },
+  "constrained_perm_null": null,
+  "bayes_factors": {
+    "log_p_uniform": -30.671860106080672,
+    "log_p_meter": -30.671860106080672,
+    "log_p_geog": {
+      "theta=0.5": -39.42102854260241,
+      "theta=1.0": -59.654473524709275,
+      "theta=1.5": -83.22180261073284,
+      "theta=2.0": -108.15984656606038,
+      "theta=3.0": -159.7634260011903
+    },
+    "n_admissible": 20922789888000,
+    "kendall_distance_observed": 53,
+    "sigma0_orientation": "descending (east-to-west)",
+    "BF_geog_vs_uniform": {
+      "theta=0.5": 0.00015859315056945494,
+      "theta=1.0": 2.588278001470322e-13,
+      "theta=1.5": 1.5060866047688472e-23,
+      "theta=2.0": 2.2253332992553925e-34,
+      "theta=3.0": 8.634660598948734e-57
+    },
+    "BF_geog_vs_meter": {
+      "theta=0.5": 0.00015859315056945494,
+      "theta=1.0": 2.588278001470322e-13,
+      "theta=1.5": 1.5060866047688472e-23,
+      "theta=2.0": 2.2253332992553925e-34,
+      "theta=3.0": 8.634660598948734e-57
+    },
+    "BF_meter_vs_uniform": 1.0,
+    "interpretation": "BF > 100: 'decisive' evidence (Jeffreys 1961 / Kass-Raftery 1995). BF 10\u2013100: 'strong'. BF 3\u201310: 'moderate'. BF 1\u20133: 'weak / no preference'.",
+    "meter_constraint_applies": false
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "corpus": "Genesis 10 \u2014 within-subsection (three Noachic branches)",
+  "source_csv": "corpora/genesis10/nations.csv",
+  "subsections": {
+    "Japheth": {
+      "text_positions": [
+        1,
+        14
+      ],
+      "n_identified": 12,
+      "tau_longitude": -0.303030303030303,
+      "p_longitude": 0.19694994338223504,
+      "tau_latitude": -0.41871789467931186,
+      "p_latitude": 0.0622294296769401
+    },
+    "Ham": {
+      "text_positions": [
+        15,
+        52
+      ],
+      "n_identified": 36,
+      "tau_longitude": -0.1290490449322206,
+      "p_longitude": 0.274816481379177,
+      "tau_latitude": 0.4239014173216519,
+      "p_latitude": 0.00033072513027623167
+    },
+    "Shem": {
+      "text_positions": [
+        53,
+        78
+      ],
+      "n_identified": 14,
+      "tau_longitude": 0.08939803125353483,
+      "p_longitude": 0.6599795898660183,
+      "tau_latitude": -0.5625686771261945,
+      "p_latitude": 0.006929552010956812
+    }
+  }
+}

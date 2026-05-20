@@ -1,0 +1,24 @@
+position,op_name,identification,centroid_lon,centroid_lat,confidence,source
+1,Pārsa,"Persia (Fārs province SW Iran; heartland around Persepolis/Pasargadae)",53.0,30.0,high,Kent 1953
+2,Ūvja,"Elam (Khūzestān SW Iran; around Susa)",48.5,32.0,high,Kent 1953
+3,Bābiruš,"Babylonia (lower Mesopotamia central/southern Iraq)",44.5,32.5,high,Kent 1953
+4,Aθurā,"Assyria (upper Mesopotamia northern Iraq; Nineveh/Arbela region)",43.0,36.0,high,Kent 1953
+5,Arabāya,"Arabia (northern Arabian peninsula / Syro-Arabian desert margins)",39.0,31.0,medium,Schmitt 2014
+6,Mudrāya,"Egypt (Nile valley; centroid around Memphis/Delta)",31.0,30.0,high,Kent 1953
+7,Tyaiy Drayahyā,"'Those by the sea' — Phoenician/Levantine coast (mainstream reading; contested)",35.5,34.0,low,Briant 2002
+8,Sparda,"Lydia (western Anatolia; capital Sardis)",28.0,38.5,high,Kent 1953
+9,Yauna,"Ionia (Aegean coast of Anatolia + offshore Greeks)",27.0,38.0,high,Kent 1953
+10,Māda,"Media (Zagros highlands NW Iran; capital Ecbatana/Hamadan)",48.5,35.0,high,Kent 1953
+11,Armina,"Armenia (Armenian highland; Lake Van / Araxes basin)",44.0,40.0,high,Kent 1953
+12,Katpatuka,"Cappadocia (central-eastern Anatolian plateau)",35.0,39.0,high,Kent 1953
+13,Parθava,"Parthia (NE Iran; Khorāsān around Nisa/Damghan)",57.5,36.5,high,Kent 1953
+14,Zraka,"Drangiana (Sīstān basin SE Iran / SW Afghanistan; Helmand drainage)",61.5,31.0,high,Schmitt 2014
+15,Haraiva,"Areia (Herat region western Afghanistan; Harī Rūd valley)",62.0,34.5,high,Kent 1953
+16,Uvārazmiš,"Chorasmia (lower Amu Darya / Khwarezm oasis Uzbekistan-Turkmenistan)",60.0,42.0,high,Kent 1953
+17,Bāxtriš,"Bactria (northern Afghanistan around Balkh / upper Oxus)",67.0,36.5,high,Kent 1953
+18,Suguda,"Sogdia (Zerafshan valley Uzbekistan/Tajikistan; Samarkand/Bukhara)",66.5,39.5,high,Kent 1953
+19,Gadāra,"Gandhāra (Peshawar/Kabul valleys; NW Pakistan + E Afghanistan)",72.0,34.0,high,Kent 1953
+20,Saka,"Scythians (mainstream: Saka tigraxauda steppes E/NE of Sogdia; Syr Darya/Jaxartes belt)",70.0,44.0,medium,Briant 2002
+21,Θataguš,"Sattagydia (mainstream: south of Hindu Kush Ghazni/upper Indus borderland)",68.5,33.0,medium,Schmitt 2014
+22,Harauvatiš,"Arachosia (Kandahar region southern Afghanistan; Arghandab/Helmand)",65.5,31.5,high,Kent 1953
+23,Maka,"Maka (mainstream: Makrān coast SE Iran / SW Pakistan)",61.5,26.0,medium,Briant 2002

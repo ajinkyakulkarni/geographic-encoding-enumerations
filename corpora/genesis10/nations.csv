@@ -1,0 +1,79 @@
+position,hebrew_name,identification,confidence,centroid_lon,centroid_lat,source
+1,Gomer,Cimmerians (Anatolia/N. Black Sea),high,35.0,40.0,Wenham 1987
+2,Magog,Scythians / Lydia (N. Anatolia; contested),medium,38.0,41.5,Wenham 1987
+3,Madai,Medes (NW Iran),high,49.5,35.5,Hess 1989
+4,Javan,Ionians (W. Anatolia / Greek Aegean),high,27.0,38.0,Westermann 1984
+5,Tubal,Tabal (E. Anatolia / Cilicia),high,37.0,38.5,Wenham 1987
+6,Meshech,Mushki (central/E. Anatolia),high,36.0,39.5,Wenham 1987
+7,Tiras,unidentified (Thracians? Tyrsenoi?),low,,,Westermann 1984
+8,Ashkenaz,Scythians (Ashkuza; Armenia/N. Iran),high,44.5,40.0,Hess 1989
+9,Riphath,unidentified,unidentified,,,Westermann 1984
+10,Togarmah,Tegarama (E. Anatolia; near Malatya),high,38.5,38.5,Hess 1989
+11,Elishah,Alashiya (Cyprus),high,33.0,35.0,Wenham 1987
+12,Tarshish,Tartessos (SW Spain),medium,-6.0,37.0,Westermann 1984
+13,Kittim,Kition (Cyprus),high,33.5,35.0,Wenham 1987
+14,Dodanim,Rhodes (Rodanim; emended reading),medium,28.0,36.5,Wenham 1987
+15,Cush,Nubia / Upper Nile,high,32.5,19.0,Hess 1989
+16,Mizraim,Egypt,high,31.0,27.0,Hess 1989
+17,Phut,Libya / Punt (Libya consensus),high,20.0,30.0,Westermann 1984
+18,Canaan,Canaan (Levant coast),high,35.0,32.0,Hess 1989
+19,Seba,Saba (NE Africa / S. Arabian colony),medium,38.0,17.0,Wenham 1987
+20,Havilah (Cushite),NE Africa or NW Arabia,low,42.0,20.0,Westermann 1984
+21,Sabtah,Hadhramaut/S. Arabia coast,medium,49.0,15.5,Wenham 1987
+22,Raamah,SW Arabia (Najran area),medium,44.5,17.5,Hess 1989
+23,Sabteca,S. Arabia (uncertain),low,46.0,15.0,Westermann 1984
+24,Sheba (Cushite),Saba (S. Arabia / Yemen),high,44.0,15.5,Hess 1989
+25,Dedan (Cushite),Dedan (NW Arabia / al-Ula),high,38.0,26.5,Hess 1989
+26,Nimrod,(person not place; skipped),unidentified,,,Westermann 1984
+27,Babel,Babylon,high,44.5,32.5,Hess 1989
+28,Erech,Uruk (S. Mesopotamia),high,46.0,31.5,Hess 1989
+29,Accad,Akkad (central Mesopotamia),high,44.5,33.0,Hess 1989
+30,Calneh,unidentified (or read 'all of them'),low,,,Wenham 1987
+31,Nineveh,Nineveh (N. Mesopotamia),high,43.0,36.5,Hess 1989
+32,Rehoboth-Ir,near Nineveh (suburb),medium,43.0,36.5,Wenham 1987
+33,Calah,Kalhu / Nimrud,high,43.5,36.0,Hess 1989
+34,Resen,between Nineveh and Calah,medium,43.0,36.0,Wenham 1987
+35,Ludim,Lydians? / N. African Libyan group,low,28.0,30.0,Westermann 1984
+36,Anamim,N. African / Egyptian group,low,29.0,30.5,Westermann 1984
+37,Lehabim,Libyans,medium,22.0,30.0,Wenham 1987
+38,Naphtuhim,Lower Egypt / Delta,medium,31.0,30.5,Hess 1989
+39,Pathrusim,Upper Egypt (Pathros),high,32.5,25.5,Hess 1989
+40,Casluhim,Egyptian / coastal,low,32.0,30.0,Westermann 1984
+41,Caphtorim,Crete,high,25.0,35.0,Wenham 1987
+42,Sidon,Sidon (Phoenicia),high,35.5,33.5,Hess 1989
+43,Heth,Hittites (Anatolia / N. Syria),high,37.0,37.0,Hess 1989
+44,Jebusite,Jerusalem,high,35.0,31.5,Wenham 1987
+45,Amorite,Amorites (Syria-Palestine),high,36.5,34.0,Hess 1989
+46,Girgashite,Levant (location uncertain),low,35.5,32.5,Westermann 1984
+47,Hivite,central Palestine (Shechem area),medium,35.0,32.0,Wenham 1987
+48,Arkite,Arqa (N. Lebanon),high,36.0,34.5,Hess 1989
+49,Sinite,N. Lebanon coast,medium,36.0,34.5,Wenham 1987
+50,Arvadite,Arwad (Syrian coast island),high,35.5,35.0,Hess 1989
+51,Zemarite,Sumur (N. Lebanon coast),high,36.0,34.5,Hess 1989
+52,Hamathite,Hamath (central Syria),high,36.5,35.0,Hess 1989
+53,Elam,Elam (SW Iran / Khuzestan),high,48.5,32.0,Hess 1989
+54,Asshur,Assyria (N. Mesopotamia),high,43.0,35.5,Hess 1989
+55,Arphaxad,Arrapha (Kirkuk) / N. Mesopotamia,medium,44.5,35.5,Wenham 1987
+56,Lud,Lydia (W. Anatolia),medium,28.0,38.5,Westermann 1984
+57,Aram,Aram / Syria,high,38.0,35.0,Hess 1989
+58,Uz,N. Arabia / Hauran,medium,37.0,32.5,Wenham 1987
+59,Hul,unidentified,unidentified,,,Westermann 1984
+60,Gether,unidentified,unidentified,,,Westermann 1984
+61,Mash,unidentified (Mt. Masius?),low,,,Westermann 1984
+62,Shelah,unidentified (eponym),unidentified,,,Westermann 1984
+63,Eber,Hebrews / trans-Euphrates (eponym),low,,,Hess 1989
+64,Peleg,unidentified (eponym),unidentified,,,Hess 1989
+65,Joktan,S. Arabia (Yaqtan; eponym),medium,45.0,15.5,Hess 1989
+66,Almodad,unidentified,unidentified,,,Westermann 1984
+67,Sheleph,Yemen (Salif?),low,43.0,15.5,Wenham 1987
+68,Hazarmaveth,Hadhramaut (S. Arabia),high,49.0,15.5,Hess 1989
+69,Jerah,unidentified (S. Arabia),unidentified,,,Westermann 1984
+70,Hadoram,S. Arabia,low,45.0,15.0,Wenham 1987
+71,Uzal,Sanaa region (S. Arabia),medium,44.0,15.5,Wenham 1987
+72,Diklah,unidentified (palm region; S. Arabia?),unidentified,,,Westermann 1984
+73,Obal,unidentified,unidentified,,,Westermann 1984
+74,Abimael,unidentified,unidentified,,,Westermann 1984
+75,Sheba (Joktanite),Saba (S. Arabia),high,44.0,15.5,Hess 1989
+76,Ophir,S. Arabia / E. Africa coast,medium,45.5,14.0,Wenham 1987
+77,Havilah (Joktanite),NW or central Arabia,low,42.0,22.0,Westermann 1984
+78,Jobab,unidentified,unidentified,,,Westermann 1984

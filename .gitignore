@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# LaTeX build artifacts
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.synctex.gz
+
+# MERIT-Hydro raw tiles (gigabytes; CC-BY-NC, per-user download —
+# see docs/MERIT_HYDRO_TODO.md). The derived CSV in data/ is tracked.
+data/merit_hydro/
+
+# OS
+.DS_Store
+Thumbs.db
