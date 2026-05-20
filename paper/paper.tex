@@ -83,30 +83,31 @@ the Table of Nations in Genesis 10. For each corpus we compute
 Kendall's $\tau$ between sequence position and the modern longitude
 (and latitude) of the identified items, using a permutation null
 distribution, a Procrustes superimposition test, a Mantel
-distance-matrix test, and a Bayes factor comparison between
-geographic and uniform-random generative models. The two Indic
+distance-matrix test, and a likelihood-ratio comparison, under a
+Mallows model, of geographic against uniform-random generative
+models. The two Indic
 corpora (RV 10.75.5 and the Mahājanapadas) show strong monotonic
 ordering along the region's east-to-west axis ($\tau = -0.911$ and
 $-0.783$, both $p<10^{-4}$). The Bīsutūn dahyāva is moderately
 ordered, with marked pairwise spatial clustering ($\tau = +0.47$,
 $p = 0.001$; Mantel $r = +0.50$, $p<10^{-4}$). Vendīdād Fargard 1
-shows no detectable geographic structure on any test. Genesis 10
+shows no robust geographic structure under the main tests. Genesis 10
 shows only a weak monotonic signal but significant pairwise spatial
-coherence (Mantel $r=0.17$, $p=0.0004$): each of its three Noachic
-sub-sections is latitudinally ordered, but the sub-sections run in
-opposite directions and cancel at the surface. A direct contrast is
-Bīsutūn against Vendīdād---both Iranian, of broadly similar date,
-naming much the same regions, yet the administrative inscription is
-geographically ordered and the cosmological text is not. Across the
-five corpora, genre appears to track geographic ordering more
-closely than language family does; with $n=5$ this is a suggested
-pattern, not an established finding. We make no claims about the
+coherence (Mantel $r=0.17$, $p=0.0004$): two of its three Noachic
+sub-sections are significantly latitudinally ordered, in opposite
+directions, so that they cancel at the surface. A suggestive
+within-tradition contrast is Bīsutūn against Vendīdād: both Iranian
+and naming much the same regions, though not matched in date, yet the
+administrative inscription is geographically ordered and the
+cosmological text is not. Across the five corpora, genre appears to
+track geographic ordering more closely than language family does;
+with $n=5$ this is a suggested pattern, not an established finding. We make no claims about the
 date, composition, or cultural identity of any of the five
 traditions; the tests bear only on the texts as transmitted.
 \medskip
 
 \noindent\textbf{Keywords:} quantitative philology; rank correlation;
-permutation test; Procrustes analysis; Bayes factor; comparative
+permutation test; Procrustes analysis; Mallows model; comparative
 textual analysis; historical geography.
 \end{abstract}
 
@@ -129,9 +130,9 @@ structure.
 
 All of these claims are informal. Each carries the same testable
 content: that the order in which named entities appear is not
-arbitrary with respect to where those entities sit on a map. We are
-not aware of any study that has checked that content quantitatively,
-let alone across several traditions at once.
+arbitrary with respect to where those entities sit on a map. We have
+not found a directly comparable study that checks that content
+quantitatively, let alone across several traditions at once.
 
 We test five lists here, each well studied in its own field:
 \d{R}gveda~10.75.5 (ten rivers; Vedic Sanskrit); the sixteen
@@ -170,6 +171,23 @@ debates.
 
 % =====================================================================
 \section{Methods}\label{sec:methods}
+
+\subsection{Corpus selection}\label{sec:selection}
+
+The five corpora were chosen, before any analysis was run, against
+four fixed criteria: (i) a textually fixed enumeration order,
+transmitted in a stable recension, so that ``sequence position'' is
+well defined; (ii) named entities that are geographic---rivers,
+lands, polities, or peoples---rather than abstract; (iii) enough
+published scholarly identifications to place a clear majority of the
+entries on a modern map; and (iv) coverage of distinct traditions,
+languages, and genres, so the comparison is not confined to a single
+literature. The five satisfy all four. They are not a random sample
+of premodern lists, and the comparative results of
+Section~\ref{sec:comparative} should be read as a pilot rather than
+as an estimate over any defined population of texts;
+Section~\ref{sec:extensions} names further lists that meet the same
+criteria and would extend the sample.
 
 \subsection{Geographic identifications}\label{sec:ids}
 
@@ -212,6 +230,18 @@ recur. Of these, sixty-two are identified with high or medium
 confidence; the remaining sixteen are unidentified or only
 speculatively located and are dropped from the analysis.
 
+One caveat applies to every corpus. The coordinate assigned to each
+entry is a modern, reproducible proxy---the centroid of a river
+polyline, the seat or area-centroid of a polity, the conventional
+location of a people---and is not a claim about where the text's
+composer mentally placed that entity. A composer may have thought of
+a river by its source, a known crossing, or a confluence rather than
+its centroid. We use centroids because they are uniform and
+reproducible across all five corpora, and because the rank-based
+tests depend only on relative position, which is far more robust to
+this choice than absolute coordinates would be. The choice remains a
+modelling commitment, not a neutral fact of the data.
+
 \subsection{Test statistics}\label{sec:stats}
 
 \paragraph{Kendall's $\tau$ with permutation null.}
@@ -222,19 +252,31 @@ sequence-position rank ($1\ldots n$) and the geographic-coordinate
 rank of the identified items, on three axes: longitude, latitude,
 and the first principal component of the (longitude, latitude)
 matrix. A two-sided $p$-value is generated from a 10\,000-iteration
-permutation null distribution.
+permutation null distribution. The \emph{primary} axis for each
+corpus is the one aligned with the dominant geographic extent of its
+region---longitude for the four corpora spanning the broadly
+east--west breadth of South and West Asia, latitude for Genesis~10,
+whose three Noachic branches run broadly north--south. This rule
+follows the gross shape of each region rather than the strength of
+any result; the principal-component $\tau$, reported alongside, is
+invariant to the choice and is the figure to weigh when the two
+coordinate axes disagree.
 
 \paragraph{Procrustes superimposition.}
 The Kendall-against-longitude and Kendall-against-latitude pair is
 not statistically independent when the items lie along a diagonal
 sweep, as is common in Eurasian geography. We therefore add a
-Procrustes test \citep{procrustes-orig} that superimposes the
-sequence-position 1-D embedding onto the 2-D
-(longitude, latitude) configuration after optimal rotation,
-scaling, and translation; the residual sum of squared distances
-$m^2$ is the test statistic, with a permutation null for the
-one-sided $p$-value (smaller $m^2$ indicates better alignment).
-This addresses the redundant-axis-test concern noted by
+Procrustes test \citep{procrustes-orig}. The sequence is embedded as
+the collinear points $(1,0),(2,0),\ldots,(n,0)$ and the geography as
+the points $(\text{lon}_i,\text{lat}_i)$, a degree of latitude and a
+degree of longitude treated as equal units (a close approximation
+for the regionally compact configurations tested). Both
+configurations are centred and scaled to unit Frobenius norm, and one
+is then optimally rotated onto the other; the residual sum of squared
+distances $m^2$ is the test statistic---invariant to translation,
+scale, and rotation---with a permutation null for the one-sided
+$p$-value (smaller $m^2$ indicates better alignment). This addresses
+the redundant-axis-test concern noted by
 \citet{peresnetojackson2001}.
 
 \paragraph{Mantel test.}
@@ -267,23 +309,25 @@ are not freely interchangeable tokens---and we treat the constrained
 null as an illustrative robustness check, not a definitive one. The
 other four corpora are prose, and the test does not apply.
 
-\paragraph{Bayes factor model comparison.}
-Following \citet{kassraftery1995} we compute Bayes factors among
-three generative models of the observed ordering:
-$M_\text{uniform}$ (sequence drawn uniformly from $n!$
-permutations), $M_\text{meter}$ (sequence drawn uniformly from the
-meter-admissible set; applicable only to verse corpora), and
+\paragraph{Mallows-model likelihood ratio.}
+We also compare three generative models of the observed ordering by
+their likelihood: $M_\text{uniform}$ (sequence drawn uniformly from
+$n!$ permutations), $M_\text{meter}$ (sequence drawn uniformly from
+the meter-admissible set; applicable only to verse corpora), and
 $M_\text{geog}(\theta)$ (sequence drawn from a Mallows model
 \citep{mallows1957, flignerverducci1986} centred on the
-geographically sorted ordering with dispersion $\theta$). $\theta$ is
-not known a priori, so we evaluate it on a grid
-$\theta \in \{0.5, 1, 1.5, 2, 3\}$; the Bayes factors quoted below
-are the maximum over that grid, and should be read as an upper
-bound on the support for $M_\text{geog}$, not a marginal value.
+geographically sorted ordering with dispersion $\theta$). Because
+$\theta$ is not known a priori, we profile it out by maximising the
+likelihood of $M_\text{geog}$ over a grid
+$\theta \in \{0.5, 1, 1.5, 2, 3\}$. The resulting quantity is a
+\emph{profile} likelihood ratio, not a Bayes factor: a Bayes factor
+would integrate $\theta$ against a prior \citep{kassraftery1995}, and
+the profile ratio is an upper bound on it. We report it only as
+corroboration; the permutation tests carry the inference.
 
 \paragraph{Multiple comparisons.}
 The study runs many tests---three geographic axes for each of five
-corpora, plus Procrustes, Mantel, and Bayes-factor analyses, the
+corpora, plus Procrustes, Mantel, and likelihood-ratio analyses, the
 Genesis sub-section breakdown, and the Ṛgveda sensitivity analyses
 of Appendix~\ref{app:rv}. We do not apply a family-wise correction,
 because the corpora are not a single hypothesis family; instead we
@@ -318,9 +362,9 @@ superimposition yields $m^2 = 0.179$, $p < 10^{-4}$. The
 constrained-permutation null (over the 4\,320 meter-admissible
 orderings) finds six orderings yielding $|\tau| \geq 0.911$, for
 $p_\text{meter} = 0.0014$: metrical determinism alone cannot
-explain the alignment. The Bayes factor against $M_\text{uniform}$
-peaks at $\approx 2\times 10^4$ over the $\theta$ grid; against
-$M_\text{meter}$ it peaks at $\approx 24$. The $\tau$ is negative because
+explain the alignment. The profile likelihood ratio favours
+$M_\text{geog}$ over $M_\text{uniform}$ by a factor of order $10^4$,
+and over $M_\text{meter}$ by a factor of order $10$. The $\tau$ is negative because
 longitude falls through the verse, from the eastern-most Ga\.{n}g\={a}
 (81.9$^\circ$\,E) to the western-most Su\d{s}om\={a}/Soan
 (72.7$^\circ$\,E).
@@ -353,11 +397,10 @@ database.
 
 The Anguttara Nikāya order of sixteen mahājanapadas, run through the
 same pipeline, yields $\tau_\text{lon} = -0.783$, $p < 10^{-4}$, and
-Procrustes $m^2 = 0.428$, $p < 10^{-4}$. The Bayes factor against
-$M_\text{uniform}$ peaks at $\approx 7.7\times 10^4$ over the
-$\theta$ grid, ``decisive'' on the Kass-Raftery scale. The canonical
-order is only 13 inversions, out of a possible 120, away from a
-perfect east-to-west sort.
+Procrustes $m^2 = 0.428$, $p < 10^{-4}$. The profile likelihood
+ratio favours $M_\text{geog}$ over $M_\text{uniform}$ by a factor of
+order $10^5$. The canonical order is only 13 inversions, out of a
+possible 120, away from a perfect east-to-west sort.
 
 The latitudinal signal is weaker ($\tau_\text{lat} = +0.22$,
 $p = 0.27$). The list moves predominantly east to west; the
@@ -376,10 +419,10 @@ The latitude axis is marginal ($\tau_\text{lat} = -0.38$,
 $p = 0.05$) and, given the multiple-comparisons exposure noted in
 Section~\ref{sec:stats}, we do not read it as a real signal; the
 Procrustes test, which uses both axes at once, is firmly null.
-Bayes factors for $M_\text{geog}(\theta)$ against
-$M_\text{uniform}$ are all $\ll 1$ across the $\theta$ grid: the
-Mallows model centered on either-direction longitudinal sort fits
-the data \emph{worse} than the uniform prior. The Kendall distance
+The profile likelihood ratio for $M_\text{geog}(\theta)$ against
+$M_\text{uniform}$ stays below~1 across the whole $\theta$ grid: the
+Mallows model centred on an either-direction longitudinal sort fits
+the data \emph{worse} than the uniform model. The Kendall distance
 to the optimal east-to-west sort is 53 of 120, near the random
 expectation of 60.
 
@@ -420,7 +463,12 @@ a different way:
 
 The sub-sections cancel at the flat-textual level. Genesis 10
 encodes geographic information, but hierarchically rather than as a
-single monotonic sweep.
+single monotonic sweep. The three-way division is the text's own
+explicit genealogy of Japheth, Ham, and Shem, not a partition chosen
+to fit the data; but testing the branches separately was prompted by
+the weak flat-sequence result, so the sub-section analysis is
+exploratory, and the Japheth branch ($p = 0.06$) is reported as
+suggestive only.
 
 \subsection{Bīsutūn dahyāva ($n=23$)}\label{sec:bisutun}
 
@@ -505,28 +553,29 @@ Genesis 10 (flat)             & 62 & $+0.174$ & $0.05$     & $0.91$ & $0.005$   
 
 Table~\ref{tab:comparison} collects the cross-corpus numbers, and
 Figure~\ref{fig:comparison} plots sequence position against
-longitude for each corpus. Four points come out of them.
+longitude for each corpus. Several points emerge.
 
 \paragraph{The Indic lists run in a straight line.}
 The Ṛgveda Nadīstuti and the Anguttara Mahājanapadas both sweep
-east to west, $|\tau| > 0.78$ on longitude. Out of the 10!
-orderings of the RV rivers, and the 16! of the mahājanapadas, the
-attested order falls in the top 0.01\,\% closest to a longitudinal
-sort.
+east to west, $|\tau| > 0.78$ on longitude. For neither corpus did
+any of the 10\,000 permutations in the null reach the observed
+$\tau$: of all $n!$ possible orderings, the attested orders rank
+among the most strongly longitude-sorted ($p < 10^{-4}$ in both
+cases).
 
 \paragraph{The Avesta is ordered by something other than geography.}
 Fargard 1 covers the same ground as the Indic texts, and the
 Iranian plateau besides, but its order is not monotonic on any axis.
 That matches \citet{gnoli1980}'s reading that the Fargard 1
 sequence follows mythic-cosmographic priority rather than an
-itinerary---a qualitative claim to which this is the quantitative
-counterpart.
+itinerary; the present result is the quantitative counterpart to
+that qualitative claim.
 
 \paragraph{Genesis~10 is ordered hierarchically.}
 Read flat, the sequence is barely ordered ($\tau = +0.174$). But the
-Mantel test still finds real spatial coherence ($r = +0.172$,
-$p = 0.0004$)---neighbouring names are neighbours on the ground even
-where the global direction washes out. The three Noachic branches
+Mantel test still detects statistically significant spatial
+coherence ($r = +0.172$, $p = 0.0004$): neighbouring names are
+neighbours on the ground even where the global direction washes out. The three Noachic branches
 explain how both can be true at once:
 
 \begin{itemize}
@@ -555,8 +604,8 @@ composite: each Noachic line may have been a self-contained
 regional list before it was set into the genealogical frame, and
 the concatenation would then keep each list's internal geographic
 logic while hiding it at the surface. The quantitative pattern is
-reached without any literary-critical assumption, and it points the
-same way.
+reached without any literary-critical assumption, and is consistent
+with that reading.
 
 \paragraph{Length does not sort the corpora.}
 The Mahājanapadas ($n=16$) and Fargard 1 ($n=16$) are the same
@@ -566,19 +615,19 @@ alike. Sample size therefore does not by itself explain the rank
 order of the corpora---though with only five of them we cannot rule
 it out as one contributing factor among others.
 
-\paragraph{Genre, more than language family, tracks the pattern.}
+\paragraph{Genre and language family.}
 Bīsutūn and Fargard 1 are both Iranian and name overlapping
 regions, yet one is geographically ordered and the other is not.
 The two ordered Indic corpora are a millennium apart and belong to
 different genres again---a Vedic hymn and a Buddhist canonical
 list---but both clear $|\tau| > 0.78$. Genesis~10's ordering lives
 inside its sub-sections, as one might expect of a genealogy
-assembled from older regional lists. Across the five, the factor
-that covaries with ordering strength is genre and compositional
-purpose rather than language family or date of fixation. This is a
-pattern the five corpora suggest; with $n=5$ it can be no more than
-that, and Section~\ref{sec:extensions} sketches the larger sample
-that could test it.
+assembled from older regional lists. Across the five, genre and
+compositional purpose are more consistent with ordering strength
+than language family or date of fixation is. With only five corpora
+this is an exploratory pattern, not an established finding;
+Section~\ref{sec:extensions} sketches the larger sample that could
+test it.
 
 \paragraph{Identification uncertainty is bounded.}
 Genesis 10's 16 unidentified items and the Avesta's 5
@@ -694,11 +743,10 @@ Bīsutūn dahyāva is ordered more loosely, by satrapal bloc; Genesis
 10 is ordered within its sub-sections but not across them; and
 Vendīdād Fargard 1 shows no geographic order at all. Across the
 five, genre appears to track these outcomes more closely than
-language family or date does---a pattern that, with $n=5$, invites
-a larger comparative test rather than settling the question. We
-claim nothing past the comparisons themselves, and the method
-carries over to any other fixed-order enumeration of identifiable
-places.
+language family or date does; this is the paper's most exploratory
+claim, and a larger comparative sample is needed to settle it. The
+method carries over to any other fixed-order enumeration of
+identifiable places.
 
 % =====================================================================
 \section*{Acknowledgements}
@@ -712,8 +760,9 @@ Project. No funding sources are reported.
 This manuscript and its accompanying analysis code were prepared
 with the assistance of a large language model (Anthropic's Claude).
 The model assisted in writing and debugging the analysis pipeline,
-in compiling the corpus identification tables from the cited
-scholarly sources, and in drafting and editing the prose. All
+in assembling the corpus coordinate tables from the cited scholarly
+sources (every identification is attributed to a published source in
+the deposited CSVs), and in drafting and editing the prose. All
 statistical results were verified by independent re-execution of the
 pipeline (the replication repository includes a script that checks
 every reported number); all references were checked against
@@ -764,11 +813,16 @@ is not in question. The analysis follows it.
 Table~\ref{tab:rivers} lists the ten rivers, their mainstream
 identifications \citep{witzel1995, macdonell-keith1912}, and the
 centroid coordinates used. Two of the ten are not settled. The
-referent of \={A}rj\={\i}k\={\i}y\={a} is debated---the Haro is one
-proposal, others place it elsewhere in the upper Indus drainage
-\citep{witzel1999}---and the historical course of the
-Sarasvat\={\i} is a long-running question; both are carried through
-the sensitivity analysis below. Nine centroids were extracted from
+referent of \={A}rj\={\i}k\={\i}y\={a} is genuinely unsettled: the
+Vip\={a}\'s (Beas) is the identification of the older commentarial
+tradition, the Haro a more recent proposal, and other readings place
+it elsewhere in the upper Indus drainage \citep{witzel1999}. The Haro
+coordinates are used for the primary analysis; the sensitivity
+analysis below spans six variant identifications, including readings
+well to the east of the Haro, and $\tau$ stays strongly negative
+throughout. The historical course of the Sarasvat\={\i} is likewise
+a long-running question, carried through the same sensitivity
+analysis. Nine centroids were extracted from
 OpenStreetMap; Marudv\d{r}dh\={a}, for which no OSM-tagged river of
 that name exists, is hand-curated to the Chenab--Jhelum doab and is
 likewise exercised in the sensitivity analysis.
@@ -833,7 +887,7 @@ Ghaggar--Hakra reconstruction of \citet{giosan2012} and
 \citet{clift2012} for the Sarasvat\={\i}, whose course is still
 under investigation \citep{singh2017}, and the older pre-capture
 course of \citet{yashpal1980} for the \'Sutudr\={\i}. This gives
-$\tau = -0.778$ ($p = 0.001$)---attenuated but still clear.
+$\tau = -0.778$ ($p = 0.001$), attenuated but still clear.
 
 \textit{Alternative identifications.} Across six variant
 identifications of the disputed \={A}rj\={\i}k\={\i}y\={a} and
@@ -856,8 +910,8 @@ is the share of permuted $|\tau|$ values $\geq$ the observed, from
 \end{table}
 
 Every variant leaves the result in the same place: the order of
-rivers in RV~10.75.5 is strongly, and not accidentally, aligned
-with longitude.
+rivers in RV~10.75.5 is strongly aligned with longitude under every
+null model tested.
 
 \bibliographystyle{plainnat}
 \bibliography{references}

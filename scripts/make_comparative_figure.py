@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
-Figure 2 — four-panel comparative summary of geographic-encoding
-strength, one panel per corpus.
+Figure 2 — five-panel comparative summary of geographic-encoding
+strength, one panel per corpus, laid out on a 2x3 grid (the sixth
+cell is left blank).
 
 Each panel: sequence-position vs longitude scatter, a linear fit, and
 the corpus's Kendall τ and Procrustes m² annotated.
