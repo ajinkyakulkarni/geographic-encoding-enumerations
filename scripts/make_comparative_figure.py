@@ -37,6 +37,13 @@ CORPORA = [
         "names_col": "name",
     },
     {
+        "label": "Bīsutūn dahyāva (n=23)",
+        "csv": REPO_ROOT / "corpora" / "bisutun" / "lands.csv",
+        "results": REPO_ROOT / "results" / "per_corpus" / "bisutun.json",
+        "results_key_primary": None,
+        "names_col": "op_name",
+    },
+    {
         "label": "Avesta Fargard 1 (n=16)",
         "csv": REPO_ROOT / "corpora" / "avesta_fargard1" / "lands.csv",
         "results": REPO_ROOT / "results" / "per_corpus" / "avesta_fargard1.json",
@@ -84,7 +91,8 @@ def load_corpus(c: dict) -> tuple[np.ndarray, np.ndarray, dict]:
 
 
 def main() -> int:
-    fig, axes = plt.subplots(2, 2, figsize=(8.5, 7.0))
+    # Five corpora on a 2x3 grid; the sixth cell is left blank.
+    fig, axes = plt.subplots(2, 3, figsize=(11.0, 6.6))
     axes = axes.flatten()
 
     for ax, c in zip(axes, CORPORA):
@@ -102,15 +110,24 @@ def main() -> int:
         for spine in ("top", "right"):
             ax.spines[spine].set_visible(False)
         ax.tick_params(labelsize=8)
-        # Annotate τ and Procrustes m².
-        ann = f"τ = {s['tau']:+.3f}   p = {s['p']:.3g}"
+        # Annotate τ and Procrustes m². A permutation p of 0.0 means no
+        # permuted statistic reached the observed value in 10,000 draws;
+        # report it as the resolution floor, "<1e-4", not as "0".
+        def fmt_p(pv: float) -> str:
+            return "<1e-4" if pv is not None and pv < 1e-4 else f"{pv:.3g}"
+
+        ann = f"τ = {s['tau']:+.3f}   p = {fmt_p(s['p'])}"
         if s["m2"] is not None:
-            ann += f"\nProcrustes m² = {s['m2']:.3f}   p = {s['p_proc']:.3g}"
+            ann += f"\nProcrustes m² = {s['m2']:.3f}   p = {fmt_p(s['p_proc'])}"
         ax.text(0.97, 0.04, ann, transform=ax.transAxes, fontsize=8.5,
                 ha="right", va="bottom", family="monospace",
                 bbox=dict(facecolor="white", edgecolor="0.7", boxstyle="round,pad=0.3"))
 
-    fig.suptitle("Geographic encoding across four premodern enumerations",
+    # Blank any unused cells (the 6th, with five corpora).
+    for ax in axes[len(CORPORA):]:
+        ax.axis("off")
+
+    fig.suptitle("Geographic encoding across five premodern enumerations",
                  fontsize=11.5, y=0.995)
     fig.tight_layout(rect=[0, 0, 1, 0.97])
     OUT_PDF.parent.mkdir(parents=True, exist_ok=True)

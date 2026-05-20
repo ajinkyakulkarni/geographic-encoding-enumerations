@@ -299,9 +299,12 @@ only.
 
 \paragraph{Reproducibility.}
 All analysis code, coordinate CSVs, and the random seed
-(\texttt{20260518}) are deposited at \citep{repo2026}.
-Dependencies: \texttt{numpy}, \texttt{scipy}, \texttt{pandas},
-\texttt{matplotlib}; versions pinned in \texttt{requirements.txt}.
+(\texttt{20260518}) are deposited at \citep{repo2026}. The repository
+includes a script that regenerates every figure, table, and number
+from the raw inputs and then checks each reported value against the
+text. Dependencies (\texttt{numpy}, \texttt{scipy}, \texttt{pandas},
+\texttt{matplotlib}, \texttt{requests}, and \texttt{rasterio}) are
+pinned in \texttt{requirements.txt}.
 
 % =====================================================================
 \section{Per-corpus results}\label{sec:results}
@@ -455,12 +458,13 @@ Section~\ref{sec:suggests} takes up what to make of that.
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.95\linewidth]{fig2_corpus_comparison.pdf}
-\caption{Sequence position against longitude, four of the five
-corpora shown. Each panel gives the observed scatter, a linear fit
-(dashed grey), and the Kendall $\tau$ and Procrustes $m^2$. The two
-Indic corpora trace a clean east-to-west line; the Avesta scatters;
-Genesis 10 shows only a weak global slope, which §\ref{sec:gen10}
-resolves into hierarchical sub-section structure.}
+\caption{Sequence position against longitude for all five corpora.
+Each panel gives the observed scatter, a linear fit (dashed grey),
+and the Kendall $\tau$ and Procrustes $m^2$. The two Indic corpora
+trace a clean line along the east-to-west axis; the Bīsutūn dahyāva
+slopes more loosely; the Avesta scatters; and Genesis 10 shows only
+a weak global slope, which Section~\ref{sec:gen10} resolves into
+hierarchical sub-section structure.}
 \label{fig:comparison}
 \end{figure}
 
@@ -499,8 +503,9 @@ Genesis 10 (flat)             & 62 & $+0.174$ & $0.05$     & $0.91$ & $0.005$   
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:comparison} collects the cross-corpus numbers. Four
-points come out of it.
+Table~\ref{tab:comparison} collects the cross-corpus numbers, and
+Figure~\ref{fig:comparison} plots sequence position against
+longitude for each corpus. Four points come out of them.
 
 \paragraph{The Indic lists run in a straight line.}
 The Ṛgveda Nadīstuti and the Anguttara Mahājanapadas both sweep
@@ -722,7 +727,8 @@ All data, code, cached Overpass responses, and the random seed
 \citep{repo2026}. Each corpus's coordinate CSV, including
 identification provenance and confidence levels, is provided in
 \texttt{corpora/}. Reproduction instructions in
-\texttt{REPRODUCING.md}.
+the repository's \texttt{README} and the \texttt{reproduce.sh}
+script.
 
 % =====================================================================
 \appendix

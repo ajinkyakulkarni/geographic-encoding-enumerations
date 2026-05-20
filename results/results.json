@@ -56,26 +56,26 @@
   },
   "sensitivity_ids": [
     {
-      "arjikiya": "Haro (Witzel 1995, primary)",
+      "arjikiya": "Haro (primary)",
       "marudvridha": "Trimmu doab (primary)",
       "tau": -0.911111111111111,
       "p_two_sided": 0.0001
     },
     {
-      "arjikiya": "Haro (Witzel 1995, primary)",
-      "marudvridha": "Maruvardh\u0101 / Witzel 1999 alt",
+      "arjikiya": "Haro (primary)",
+      "marudvridha": "eastern alternative",
       "tau": -0.911111111111111,
       "p_two_sided": 0.0
     },
     {
-      "arjikiya": "Soan (alt)",
+      "arjikiya": "Soan (eastern alt)",
       "marudvridha": "Trimmu doab (primary)",
       "tau": -0.6888888888888888,
       "p_two_sided": 0.0052
     },
     {
-      "arjikiya": "Soan (alt)",
-      "marudvridha": "Maruvardh\u0101 / Witzel 1999 alt",
+      "arjikiya": "Soan (eastern alt)",
+      "marudvridha": "eastern alternative",
       "tau": -0.6888888888888888,
       "p_two_sided": 0.0048
     },
@@ -87,7 +87,7 @@
     },
     {
       "arjikiya": "upper Indus tributary",
-      "marudvridha": "Maruvardh\u0101 / Witzel 1999 alt",
+      "marudvridha": "eastern alternative",
       "tau": -0.8666666666666666,
       "p_two_sided": 0.0
     },

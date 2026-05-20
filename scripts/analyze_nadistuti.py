@@ -147,17 +147,17 @@ def main() -> int:
     }
 
     # ---------- Sensitivity (i): alternative river IDs ----------
-    # Candidate alternatives for Ārjīkīyā (pos 9) and Marudvṛdhā (pos 7).
-    # Witzel 1995/1999 leaves both contested; we test reasonable alternatives
-    # plus a drop-position-7 variant (n=9) for Marudvṛdhā.
+    # Candidate alternatives for Ārjīkīyā (pos 9) and Marudvṛdhā (pos 7),
+    # both contested identifications; we test reasonable alternatives plus
+    # a drop-position-7 variant (n=9) for Marudvṛdhā.
     arjikiya_alts = {
-        "Haro (Witzel 1995, primary)": lons[8],          # pos 9, idx 8
-        "Soan (alt)":                  76.0,             # eastern alt longitude
-        "upper Indus tributary":       71.5,             # westward alt
+        "Haro (primary)":        lons[8],   # pos 9, idx 8
+        "Soan (eastern alt)":    76.0,      # eastern alternative longitude
+        "upper Indus tributary": 71.5,      # westward alternative
     }
     marudvridha_alts = {
-        "Trimmu doab (primary)":   lons[6],   # pos 7, idx 6
-        "Maruvardhā / Witzel 1999 alt": 74.0,  # slightly east of doab
+        "Trimmu doab (primary)": lons[6],   # pos 7, idx 6
+        "eastern alternative":   74.0,      # slightly east of the doab
     }
 
     id_results = []
