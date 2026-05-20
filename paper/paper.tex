@@ -90,7 +90,7 @@ corpora (RV 10.75.5 and the Mahājanapadas) show strong monotonic
 ordering along the region's east-to-west axis ($\tau = -0.911$ and
 $-0.783$, both $p<10^{-4}$). The Bīsutūn dahyāva is moderately
 ordered, with marked pairwise spatial clustering ($\tau = +0.47$,
-$p = 0.001$; Mantel $r = +0.50$, $p<10^{-4}$). Vendīdād Fargard 1
+$p = 0.0014$; Mantel $r = +0.50$, $p<10^{-4}$). Vendīdād Fargard 1
 shows no robust geographic structure under the main tests. Genesis 10
 shows only a weak monotonic signal but significant pairwise spatial
 coherence (Mantel $r=0.17$, $p=0.0004$): two of its three Noachic
@@ -333,9 +333,10 @@ of Appendix~\ref{app:rv}. We do not apply a family-wise correction,
 because the corpora are not a single hypothesis family; instead we
 state plainly which results are robust to any reasonable correction
 and which are not. The strong results---RV~10.75.5 and the
-Mahājanapadas on every test, Bīsutūn on Kendall and Mantel, and the
-Ham sub-section of Genesis~10---have $p$-values below $10^{-3}$ and
-survive any correction. The marginal results---the Genesis~10
+Mahājanapadas on the longitude, Procrustes, and Mantel tests,
+Bīsutūn on Kendall and Mantel, and the Ham sub-section of
+Genesis~10---all have $p \leq 1.4\times10^{-3}$ and survive a
+reasonable family-wise correction. The marginal results---the Genesis~10
 flat-sequence test ($p=0.05$), the Japheth sub-section ($p=0.06$),
 and the Vendīdād latitude axis ($p=0.05$)---would not survive a
 family-wise correction and we treat them throughout as suggestive
@@ -422,9 +423,10 @@ Procrustes test, which uses both axes at once, is firmly null.
 The profile likelihood ratio for $M_\text{geog}(\theta)$ against
 $M_\text{uniform}$ stays below~1 across the whole $\theta$ grid: the
 Mallows model centred on an either-direction longitudinal sort fits
-the data \emph{worse} than the uniform model. The Kendall distance
-to the optimal east-to-west sort is 53 of 120, near the random
-expectation of 60.
+the data \emph{worse} than the uniform model. As a Kendall distance, the
+attested order is 53 inversions from a perfect east-to-west sort and
+67 from its reverse, against a random expectation of 60 either
+way---a negligible lean, consistent with $\tau_\text{lon} = -0.117$.
 
 The five lower-confidence identifications (Airyana Vaējah, Urvā,
 Caxra, Varəna, Ra\.{n}gh\={a}) span roughly $35^\circ$ of longitude
@@ -484,7 +486,7 @@ identifications high-confidence and four (\#5 Arabāya, \#7 Drayahyā,
 \citet{briant2002}.
 
 The result sits between the Indic corpora and the Avesta:
-$\tau_\text{lon} = +0.47$, $p = 0.001$ (moderate west-to-east),
+$\tau_\text{lon} = +0.47$, $p = 0.0014$ (moderate west-to-east),
 Procrustes $m^2 = 0.51$, $p = 0.0003$, Mantel $r = +0.50$,
 $p < 10^{-4}$. The order is not cleanly monotonic. It starts in the
 imperial core (Pārsa, then Babylonia), detours west to Egypt and the
@@ -539,7 +541,7 @@ Corpus & $n$ & $\tau_\text{lon}$ & $p_\tau$ & $m^2$ & $p_\text{Proc}$
 \midrule
 \d{R}gveda 10.75.5          & 10 & $-0.911$ & $<10^{-4}$ & $0.18$ & $<10^{-4}$ & $+0.767$ & $<10^{-4}$ \\
 Mah\={a}janapadas (AN I.213)  & 16 & $-0.783$ & $<10^{-4}$ & $0.43$ & $<10^{-4}$ & $+0.617$ & $<10^{-4}$ \\
-B\={\i}sut\={u}n dahy\={a}va (DB I.6) & 23 & $+0.472$ & $0.001$    & $0.51$ & $0.0003$   & $+0.505$ & $<10^{-4}$ \\
+B\={\i}sut\={u}n dahy\={a}va (DB I.6) & 23 & $+0.472$ & $0.0014$   & $0.51$ & $0.0003$   & $+0.505$ & $<10^{-4}$ \\
 Vend\={\i}d\={a}d Fargard 1      & 16 & $-0.117$ & $0.56$     & $0.98$ & $0.67$     & $+0.112$ & $0.15$ \\
 Genesis 10 (flat)             & 62 & $+0.174$ & $0.05$     & $0.91$ & $0.005$    & $+0.172$ & $0.0004$ \\
 \midrule
@@ -565,7 +567,8 @@ cases).
 
 \paragraph{The Avesta is ordered by something other than geography.}
 Fargard 1 covers the same ground as the Indic texts, and the
-Iranian plateau besides, but its order is not monotonic on any axis.
+Iranian plateau besides, but its order is not robustly monotonic on
+any axis.
 That matches \citet{gnoli1980}'s reading that the Fargard 1
 sequence follows mythic-cosmographic priority rather than an
 itinerary; the present result is the quantitative counterpart to
@@ -657,10 +660,11 @@ The five corpora fall into three kinds of geographic encoding:
       core, then Egypt and the Aegean, then a march east across the
       plateau---rather than down one axis. That is what listing
       satrapies in administrative-priority order would look like.
-\item \textbf{Hierarchical} (Genesis~10). Each Noachic branch is
-      latitudinally ordered on its own; the three branches point
-      different ways and cancel once concatenated. A genealogy
-      assembled from older regional lists would behave this way.
+\item \textbf{Hierarchical} (Genesis~10). Ham and Shem are each
+      latitudinally ordered on their own, in opposite directions,
+      and cancel once concatenated; the Japheth branch shows only a
+      weak trend in the same framework. A genealogy assembled from
+      older regional lists would behave this way.
 \end{enumerate}
 
 Fargard 1 fits none of the three; it returns a null on every test.
@@ -712,7 +716,7 @@ identifications; dropping them leaves the qualitative conclusions in
 place, but a full robustness study of the identifications is a
 separate piece of work.
 
-Finally, the Mallows model behind the Bayes factor is one defensible
+Finally, the Mallows model behind the likelihood ratio is one defensible
 choice among several. A Cayley- or Hamming-distance Mallows, or a
 non-Mallows prior, could move the numbers. We use the
 Kendall-distance form because it is the one that matches Kendall's
@@ -741,7 +745,7 @@ Anguttara Mahājanapadas trace a strong monotonic line along the
 region's east-to-west axis ($|\tau| > 0.78$, $p < 10^{-4}$); the
 Bīsutūn dahyāva is ordered more loosely, by satrapal bloc; Genesis
 10 is ordered within its sub-sections but not across them; and
-Vendīdād Fargard 1 shows no geographic order at all. Across the
+Vendīdād Fargard 1 shows no robust geographic order. Across the
 five, genre appears to track these outcomes more closely than
 language family or date does; this is the paper's most exploratory
 claim, and a larger comparative sample is needed to settle it. The
@@ -775,7 +779,7 @@ All data, code, cached Overpass responses, and the random seed
 (\texttt{20260518}) used for the permutation tests are available at
 \citep{repo2026}. Each corpus's coordinate CSV, including
 identification provenance and confidence levels, is provided in
-\texttt{corpora/}. Reproduction instructions in
+\texttt{corpora/}. Reproduction instructions are given in
 the repository's \texttt{README} and the \texttt{reproduce.sh}
 script.
 
