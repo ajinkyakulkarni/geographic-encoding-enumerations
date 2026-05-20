@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """
-Build Table 2 — sensitivity analysis summary — as a LaTeX fragment.
+Build Table 3 — the RV 10.75.5 sensitivity-analysis summary — as a
+LaTeX fragment.
+
+Every variant in this table has n <= 10, so the p-values shown are the
+exact two-sided Kendall-tau p-values, not permutation estimates.
 
 Inputs:  results/results.json
 Outputs: tables/sensitivity_table.tex
@@ -9,6 +13,7 @@ Outputs: tables/sensitivity_table.tex
 from __future__ import annotations
 
 import json
+import math
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -17,9 +22,13 @@ OUT_TEX = REPO_ROOT / "tables" / "sensitivity_table.tex"
 
 
 def fmt_p(p: float) -> str:
-    if p < 1e-4:
-        return r"$<10^{-4}$"
-    return f"${p:.4f}$"
+    """Format a p-value: plain decimals at or above 1e-3, otherwise
+    three-significant-figure scientific notation."""
+    if p >= 1e-3:
+        return f"${p:.4f}$"
+    exp = int(math.floor(math.log10(p)))
+    mant = p / 10 ** exp
+    return f"${mant:.2f}\\times10^{{{exp}}}$"
 
 
 def fmt_tau(t: float) -> str:
@@ -32,25 +41,25 @@ def main() -> int:
     rows: list[tuple[str, float, float, str]] = []
     p = d["primary"]
     rows.append(("Primary: longitude",
-                 p["tau"], p["p_two_sided"],
-                 "modern centroids, 10\\,000 permutations"))
+                 p["tau"], p["p_exact"],
+                 "modern centroids"))
     rows.append(("Axis: latitude",
                  d["sensitivity_axis"]["latitude"]["tau"],
-                 d["sensitivity_axis"]["latitude"]["p_two_sided"],
+                 d["sensitivity_axis"]["latitude"]["p_exact"],
                  "rivers also trend N-S"))
     rows.append(("Axis: PC1",
                  d["sensitivity_axis"]["pc1"]["tau"],
-                 d["sensitivity_axis"]["pc1"]["p_two_sided"],
+                 d["sensitivity_axis"]["pc1"]["p_exact"],
                  "principal component of $(\\mathrm{lon},\\mathrm{lat})$"))
     rows.append(("Paleocourse substitution",
                  d["sensitivity_paleo"]["tau"],
-                 d["sensitivity_paleo"]["p_two_sided"],
+                 d["sensitivity_paleo"]["p_exact"],
                  "paleo-Sarasvat\\={\\i}, paleo-Sutlej"))
     for r in d["sensitivity_ids"]:
         short_arj = r['arjikiya'].split(' (')[0]
         short_mar = r['marudvridha'].split(' (')[0]
         rows.append((f"ID: \\={{A}}rj.={short_arj}; Mar.={short_mar}",
-                     r["tau"], r["p_two_sided"],
+                     r["tau"], r["p_exact"],
                      ""))
     pert = d["sensitivity_perturbation"]
     rows.append((f"Coord. perturb. ($\\sigma={pert['sigma_deg']}^\\circ$, n=1000)",

@@ -357,8 +357,11 @@ pinned in \texttt{requirements.txt}.
 \subsection{Ṛgveda 10.75.5 (Nadīstuti-sūkta, $n=10$)}\label{sec:rv}
 
 The ten-river enumeration of the Nadīstuti-sūkta yields
-$\tau_\text{lon} = -0.911$ with permutation $p < 10^{-4}$
-(10\,000 permutations, seed \texttt{20260518}). The Procrustes
+$\tau_\text{lon} = -0.911$. Because $n=10$, the exact two-sided
+Kendall-$\tau$ $p$-value is computable, and equals
+$2.98\times10^{-5}$ (the 10\,000-permutation null, seed
+\texttt{20260518}, places it below its $10^{-4}$ resolution
+floor; see Appendix~\ref{app:rv}). The Procrustes
 superimposition yields $m^2 = 0.179$, $p < 10^{-4}$. The
 constrained-permutation null (over the 4\,320 meter-admissible
 orderings) finds six orderings yielding $|\tau| \geq 0.911$, for
@@ -859,10 +862,14 @@ Lat (\textdegree\,N) & $n_\text{nodes}$ \\
 
 \paragraph{Primary test.}
 Kendall's $\tau$ between verse order and longitude is
-$\tau = -0.911$. Across 10\,000 permutations no permuted statistic
-reached $|\tau|$, so $p < 10^{-4}$. The null distribution
-(Figure~\ref{fig:null}) is near-symmetric about zero, mean
-$-0.001$, standard deviation $0.251$, central 95\,\% interval
+$\tau = -0.911$. Because $n=10$, the permutation null can be
+replaced by the exact Kendall-$\tau$ distribution: of the
+$10! = 3{,}628{,}800$ orderings of ten items, exactly $108$ reach
+$|\tau| \geq 0.911$, an exact two-sided $p = 2.98\times10^{-5}$.
+The 10\,000-draw permutation null reaches no statistic that extreme
+and so reports only its resolution floor, $p < 10^{-4}$; its
+distribution (Figure~\ref{fig:null}) is near-symmetric about zero,
+mean $-0.001$, standard deviation $0.251$, central 95\,\% interval
 $[-0.511, +0.467]$.
 
 \begin{figure}[t]
@@ -879,8 +886,10 @@ the central 95\,\% interval of the null.}
 Four checks are summarised in Table~\ref{tab:sensitivity}.
 
 \textit{Geographic axis.} $\tau$ against latitude is $+0.956$
-($p<10^{-4}$) and against the first principal component $+0.911$
-($p=0.0002$). The latitude figure is not independent corroboration,
+(exact two-sided $p = 5.51\times10^{-6}$) and against the first
+principal component $+0.911$ (exact $p = 2.98\times10^{-5}$, equal
+to the longitude axis since the $\tau$ magnitude is the same). The
+latitude figure is not independent corroboration,
 since the rivers lie on a NW--SE diagonal and the two axes are
 strongly correlated; it shows only that the result is not an
 artefact of choosing longitude.
@@ -891,7 +900,8 @@ Ghaggar--Hakra reconstruction of \citet{giosan2012} and
 \citet{clift2012} for the Sarasvat\={\i}, whose course is still
 under investigation \citep{singh2017}, and the older pre-capture
 course of \citet{yashpal1980} for the \'Sutudr\={\i}. This gives
-$\tau = -0.778$ ($p = 0.001$), attenuated but still clear.
+$\tau = -0.778$ (exact $p = 9.46\times10^{-4}$), attenuated but
+still clear.
 
 \textit{Alternative identifications.} Across six variant
 identifications of the disputed \={A}rj\={\i}k\={\i}y\={a} and
@@ -904,9 +914,9 @@ $\sigma = 0.5^\circ$, over 1\,000 iterations, yields a 95\,\%
 interval for $\tau$ of $[-0.956, -0.644]$, median $-0.822$.
 
 \begin{table}[t]
-\caption{RV~10.75.5 sensitivity-analysis summary. ``$p$ two-sided''
-is the share of permuted $|\tau|$ values $\geq$ the observed, from
-10\,000 permutations.}
+\caption{RV~10.75.5 sensitivity-analysis summary. Every variant has
+$n \leq 10$, so ``$p$ (two-sided)'' is the \emph{exact} two-sided
+Kendall-$\tau$ $p$-value rather than a permutation estimate.}
 \label{tab:sensitivity}
 \centering\footnotesize
 \setlength{\tabcolsep}{5pt}

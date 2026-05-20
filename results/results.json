@@ -9,6 +9,7 @@
   "primary": {
     "tau": -0.911111111111111,
     "p_two_sided": 0.0,
+    "p_exact": 2.9761904761904762e-05,
     "n_perm": 10000,
     "null_mean": -0.0007199999999999997,
     "null_std": 0.2510050006396214,
@@ -19,16 +20,19 @@
   "sensitivity_axis": {
     "latitude": {
       "tau": 0.9555555555555554,
-      "p_two_sided": 0.0
+      "p_two_sided": 0.0,
+      "p_exact": 5.5114638447971785e-06
     },
     "pc1": {
       "tau": 0.911111111111111,
-      "p_two_sided": 0.0002
+      "p_two_sided": 0.0002,
+      "p_exact": 2.9761904761904762e-05
     }
   },
   "sensitivity_paleo": {
     "tau": -0.7777777777777777,
     "p_two_sided": 0.001,
+    "p_exact": 0.0009463183421516755,
     "substitutions": [
       {
         "vedic_name": "Sarasvat\u012b",
@@ -59,43 +63,50 @@
       "arjikiya": "Haro (primary)",
       "marudvridha": "Trimmu doab (primary)",
       "tau": -0.911111111111111,
-      "p_two_sided": 0.0001
+      "p_two_sided": 0.0001,
+      "p_exact": 2.9761904761904762e-05
     },
     {
       "arjikiya": "Haro (primary)",
       "marudvridha": "eastern alternative",
       "tau": -0.911111111111111,
-      "p_two_sided": 0.0
+      "p_two_sided": 0.0,
+      "p_exact": 2.9761904761904762e-05
     },
     {
       "arjikiya": "Soan (eastern alt)",
       "marudvridha": "Trimmu doab (primary)",
       "tau": -0.6888888888888888,
-      "p_two_sided": 0.0052
+      "p_two_sided": 0.0052,
+      "p_exact": 0.00468694885361552
     },
     {
       "arjikiya": "Soan (eastern alt)",
       "marudvridha": "eastern alternative",
       "tau": -0.6888888888888888,
-      "p_two_sided": 0.0048
+      "p_two_sided": 0.0048,
+      "p_exact": 0.00468694885361552
     },
     {
       "arjikiya": "upper Indus tributary",
       "marudvridha": "Trimmu doab (primary)",
       "tau": -0.8666666666666666,
-      "p_two_sided": 0.0
+      "p_two_sided": 0.0,
+      "p_exact": 0.00011518959435626102
     },
     {
       "arjikiya": "upper Indus tributary",
       "marudvridha": "eastern alternative",
       "tau": -0.8666666666666666,
-      "p_two_sided": 0.0
+      "p_two_sided": 0.0,
+      "p_exact": 0.00011518959435626102
     },
     {
       "arjikiya": "Haro (Witzel)",
       "marudvridha": "DROPPED (n=9)",
       "tau": -0.9444444444444445,
-      "p_two_sided": 0.0
+      "p_two_sided": 0.0,
+      "p_exact": 4.96031746031746e-05
     }
   ],
   "sensitivity_perturbation": {
