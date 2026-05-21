@@ -3,9 +3,10 @@
 % a five-corpus quantitative test (RV 10.75.5, Mahajanapadas,
 % Avesta Fargard 1, Bisutun dahyava, Genesis 10).
 %
-% Compile with lualatex via the centralized harness:
-%   make Nadīstuti-sūkta
-% (see /Users/akulkarn/Desktop/Code/Ajinkya/Papers/Makefile)
+% Compile with lualatex (required by fontspec):
+%   latexmk -lualatex paper.tex
+% Needs references.bib, the two figure PDFs, and
+% tables/sensitivity_table.tex in the same directory.
 % =====================================================================
 
 \documentclass[11pt]{article}
@@ -329,18 +330,19 @@ corroboration; the permutation tests carry the inference.
 The study runs many tests---three geographic axes for each of five
 corpora, plus Procrustes, Mantel, and likelihood-ratio analyses, the
 Genesis sub-section breakdown, and the Ṛgveda sensitivity analyses
-of Appendix~\ref{app:rv}. We do not apply a family-wise correction,
-because the corpora are not a single hypothesis family; instead we
-state plainly which results are robust to any reasonable correction
-and which are not. The strong results---RV~10.75.5 and the
-Mahājanapadas on the longitude, Procrustes, and Mantel tests,
+of Appendix~\ref{app:rv}. We do not apply a single blanket
+family-wise correction, because the five corpora are not one
+hypothesis family; instead we state plainly which results are robust
+to correction and which are not. The strong results---RV~10.75.5 and
+the Mahājanapadas on the longitude, Procrustes, and Mantel tests,
 Bīsutūn on Kendall and Mantel, and the Ham sub-section of
-Genesis~10---all have $p \leq 1.4\times10^{-3}$ and survive a
-reasonable family-wise correction. The marginal results---the Genesis~10
-flat-sequence test ($p=0.05$), the Japheth sub-section ($p=0.06$),
-and the Vendīdād latitude axis ($p=0.05$)---would not survive a
-family-wise correction and we treat them throughout as suggestive
-only.
+Genesis~10---all have $p \leq 1.4\times10^{-3}$, and a Bonferroni
+correction over the roughly thirty corpus-level tests of this study
+(threshold $\approx 1.7\times10^{-3}$) would leave every one of them
+significant. The marginal results---the Genesis~10 flat-sequence
+test ($p=0.05$), the Japheth sub-section ($p=0.06$), and the
+Vendīdād latitude axis ($p=0.05$)---would not survive such a
+correction, and we treat them throughout as suggestive only.
 
 \paragraph{Reproducibility.}
 All analysis code, coordinate CSVs, and the random seed
@@ -748,8 +750,8 @@ Of the five enumerations tested, the Ṛgveda Nadīstuti and the
 Anguttara Mahājanapadas trace a strong monotonic line along the
 region's east-to-west axis ($|\tau| > 0.78$, $p < 10^{-4}$); the
 Bīsutūn dahyāva is ordered more loosely, by satrapal bloc; Genesis
-10 is ordered within its sub-sections but not across them; and
-Vendīdād Fargard 1 shows no robust geographic order. Across the
+10 is ordered within two of its three sub-sections but not as a flat
+sequence; and Vendīdād Fargard 1 shows no robust geographic order. Across the
 five, genre appears to track these outcomes more closely than
 language family or date does; this is the paper's most exploratory
 claim, and a larger comparative sample is needed to settle it. The

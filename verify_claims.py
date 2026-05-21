@@ -113,9 +113,13 @@ CLAIMS = [
     ("Appendix A", "RV sensitivity: perturbation 97.5% quantile",
      R["rv"]["sensitivity_perturbation"]["tau_p975"], "approx", -0.644, 0.01),
 
-    # ---- RV 10.75.5 MERIT-Hydro cross-check (Appendix A) ----
-    ("Appendix A", "RV MERIT-Hydro centroids: Kendall tau",
+    # ---- RV 10.75.5 MERIT-Hydro cross-check (Section 3.1) ----
+    ("Sec 3.1", "RV MERIT-Hydro centroids: Kendall tau",
      R["rv_merit"]["kendall_lon"]["tau"], "approx", -0.867, 0.002),
+    ("Sec 3.1", "RV MERIT-Hydro centroids: Procrustes m^2",
+     R["rv_merit"]["procrustes"]["m2"], "approx", 0.227, 0.002),
+    ("Sec 3.1", "RV MERIT-Hydro centroids: Mantel r",
+     R["rv_merit"]["mantel"]["mantel_r"], "approx", 0.715, 0.002),
 
     # ---- Mahajanapadas (Abstract, Table 1) ----
     ("Abstract/Table 1", "Mahajanapadas  Kendall tau vs longitude",
