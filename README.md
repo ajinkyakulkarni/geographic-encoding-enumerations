@@ -70,11 +70,11 @@ For example, the headline τ = −0.911:
 | 5 | `scripts/analyze_merit_sensitivity.py` | `results/per_corpus/rv_merit.json` — RV result re-checked on NASA-SRTM-derived MERIT-Hydro centroids |
 | 6 | `scripts/make_figure.py`, `make_comparative_figure.py` | `figures/*.pdf` |
 | 7 | `scripts/make_table.py` | `tables/sensitivity_table.tex` |
-| 8 | `verify_claims.py` | PASS/FAIL table over all 35 paper claims |
+| 8 | `verify_claims.py` | PASS/FAIL table over all 40 paper claims |
 
 `scripts/methods.py` holds the shared method implementations
-(Procrustes/PROTEST, Mantel, constrained-permutation null, Bayes
-factors with a Mallows model).
+(Procrustes/PROTEST, Mantel, constrained-permutation null, and a
+profile likelihood ratio under a Mallows model).
 
 ## Layout
 

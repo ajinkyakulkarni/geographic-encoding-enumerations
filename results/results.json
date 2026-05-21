@@ -61,7 +61,7 @@
   "sensitivity_ids": [
     {
       "arjikiya": "Haro (primary)",
-      "marudvridha": "Trimmu doab (primary)",
+      "marudvridha": "Chenab\u2013Jhelum doab (primary)",
       "tau": -0.911111111111111,
       "p_two_sided": 0.0001,
       "p_exact": 2.9761904761904762e-05
@@ -75,7 +75,7 @@
     },
     {
       "arjikiya": "Soan (eastern alt)",
-      "marudvridha": "Trimmu doab (primary)",
+      "marudvridha": "Chenab\u2013Jhelum doab (primary)",
       "tau": -0.6888888888888888,
       "p_two_sided": 0.0052,
       "p_exact": 0.00468694885361552
@@ -89,7 +89,7 @@
     },
     {
       "arjikiya": "upper Indus tributary",
-      "marudvridha": "Trimmu doab (primary)",
+      "marudvridha": "Chenab\u2013Jhelum doab (primary)",
       "tau": -0.8666666666666666,
       "p_two_sided": 0.0,
       "p_exact": 0.00011518959435626102
@@ -102,7 +102,7 @@
       "p_exact": 0.00011518959435626102
     },
     {
-      "arjikiya": "Haro (Witzel)",
+      "arjikiya": "Haro (primary)",
       "marudvridha": "DROPPED (n=9)",
       "tau": -0.9444444444444445,
       "p_two_sided": 0.0,
@@ -149,7 +149,7 @@
     "null_p025": -0.7333333333333333,
     "null_p975": -0.15555555555555553
   },
-  "bayes_factors": {
+  "likelihood_ratios": {
     "log_p_uniform": -15.104412573075516,
     "log_p_meter": -8.371010681238156,
     "log_p_geog": {
@@ -162,22 +162,22 @@
     "n_admissible": 4320,
     "kendall_distance_observed": 2,
     "sigma0_orientation": "descending (east-to-west)",
-    "BF_geog_vs_uniform": {
+    "LR_geog_vs_uniform": {
       "theta=0.5": 871.3242742323447,
       "theta=1.0": 9916.581800325372,
       "theta=1.5": 19880.698751246702,
       "theta=2.0": 18343.7969214497,
       "theta=3.0": 5695.3290760616765
     },
-    "BF_geog_vs_meter": {
+    "LR_geog_vs_meter": {
       "theta=0.5": 1.0372908026575522,
       "theta=1.0": 11.805454524196861,
       "theta=1.5": 23.66749851338893,
       "theta=2.0": 21.837853477916287,
       "theta=3.0": 6.78015366197818
     },
-    "BF_meter_vs_uniform": 840.0000000000007,
-    "interpretation": "BF > 100: 'decisive' evidence (Jeffreys 1961 / Kass-Raftery 1995). BF 10\u2013100: 'strong'. BF 3\u201310: 'moderate'. BF 1\u20133: 'weak / no preference'."
+    "LR_meter_vs_uniform": 840.0000000000007,
+    "note": "These are profile likelihood ratios (theta maximised over the grid), an upper bound on a Bayes factor that would integrate theta against a prior; reported only as corroboration of the permutation tests."
   },
   "null_distribution_samples": [
     0.4222222222222222,

@@ -34,10 +34,10 @@ from scipy.stats import kendalltau
 # Allow `from methods import ...` when run from any CWD.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from methods import (
-    bayes_factors,
     constrained_perm_null,
     mantel_test,
     procrustes_test,
+    profile_likelihood_ratios,
 )
 
 SEED = 20260518
@@ -166,7 +166,7 @@ def main() -> int:
         "upper Indus tributary": 71.5,      # westward alternative
     }
     marudvridha_alts = {
-        "Trimmu doab (primary)": lons[6],   # pos 7, idx 6
+        "Chenab–Jhelum doab (primary)": lons[6],   # pos 7, idx 6
         "eastern alternative":   74.0,      # slightly east of the doab
     }
 
@@ -193,7 +193,7 @@ def main() -> int:
     drop_res = tau_and_perm_p(vr9, lons[drop_mask], rng)
     drop_res.pop("null_samples")
     id_results.append({
-        "arjikiya": "Haro (Witzel)",
+        "arjikiya": "Haro (primary)",
         "marudvridha": "DROPPED (n=9)",
         "tau": drop_res["tau"],
         "p_two_sided": drop_res["p_two_sided"],
@@ -216,12 +216,12 @@ def main() -> int:
         "tau_std":  float(taus.std(ddof=1)),
     }
 
-    # ---------- Procrustes, Mantel, constrained-permutation null, Bayes factors ----------
+    # ---------- Procrustes, Mantel, constrained null, likelihood ratios ----------
     coords = np.column_stack([lons, lats])
     procrustes_res = procrustes_test(verse_rank, coords, rng)
     mantel_res = mantel_test(verse_rank, coords, rng)
     constrained_res = constrained_perm_null(verse_rank, lons)
-    bf_res = bayes_factors(verse_rank, lons)
+    lr_res = profile_likelihood_ratios(verse_rank, lons)
 
     # ---------- Assemble ----------
     out = {
@@ -240,7 +240,7 @@ def main() -> int:
         "procrustes": procrustes_res,
         "mantel": mantel_res,
         "constrained_perm_null": constrained_res,
-        "bayes_factors": bf_res,
+        "likelihood_ratios": lr_res,
         "null_distribution_samples": null_samples.tolist(),
     }
 
@@ -274,7 +274,7 @@ def main() -> int:
 
     print()
     print("=" * 60)
-    print("Procrustes / Mantel / constrained-permutation / Bayes factors")
+    print("Procrustes / Mantel / constrained-permutation / likelihood ratios")
     print("=" * 60)
     print(f"\nProcrustes / PROTEST")
     print(f"  m² = {procrustes_res['m2']:.4f}   p (one-sided) = {procrustes_res['p_one_sided']:.4f}")
@@ -288,19 +288,19 @@ def main() -> int:
     print(f"  N admissible = {constrained_res['n_admissible']}   N |τ|≥obs = {constrained_res['n_extreme_geq_observed']}")
     print(f"  p_constrained = {constrained_res['p_constrained']:.4f}")
 
-    print(f"\nBayes factors  (σ₀ orientation: {bf_res['sigma0_orientation']})")
-    print(f"  Kendall distance to optimal sort = {bf_res['kendall_distance_observed']} / 45")
+    print(f"\nProfile likelihood ratios  (σ₀ orientation: {lr_res['sigma0_orientation']})")
+    print(f"  Kendall distance to optimal sort = {lr_res['kendall_distance_observed']} / 45")
     print(f"  log P(observed) under each model:")
-    print(f"    uniform:  {bf_res['log_p_uniform']:.3f}")
-    print(f"    meter:    {bf_res['log_p_meter']:.3f}  (N = {bf_res['n_admissible']})")
-    for k, v in bf_res['log_p_geog'].items():
+    print(f"    uniform:  {lr_res['log_p_uniform']:.3f}")
+    print(f"    meter:    {lr_res['log_p_meter']:.3f}  (N = {lr_res['n_admissible']})")
+    for k, v in lr_res['log_p_geog'].items():
         print(f"    geog({k}): {v:.3f}")
-    print(f"  BF(meter vs uniform)  = {bf_res['BF_meter_vs_uniform']:.1f}")
-    print(f"  BF(geog vs uniform):")
-    for k, v in bf_res['BF_geog_vs_uniform'].items():
+    print(f"  LR(meter vs uniform)  = {lr_res['LR_meter_vs_uniform']:.1f}")
+    print(f"  LR(geog vs uniform):")
+    for k, v in lr_res['LR_geog_vs_uniform'].items():
         print(f"    {k}: {v:.2e}")
-    print(f"  BF(geog vs meter):")
-    for k, v in bf_res['BF_geog_vs_meter'].items():
+    print(f"  LR(geog vs meter):")
+    for k, v in lr_res['LR_geog_vs_meter'].items():
         print(f"    {k}: {v:.2f}")
 
     print(f"\nWrote {RESULTS_JSON}")

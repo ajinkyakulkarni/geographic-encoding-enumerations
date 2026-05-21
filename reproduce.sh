@@ -21,7 +21,7 @@ python3 scripts/fetch_river_coords.py
 
 echo
 echo "[2/8] RV 10.75.5 analysis  (Kendall, Procrustes, Mantel,"
-echo "      constrained-permutation null, Bayes factors)"
+echo "      constrained-permutation null, likelihood ratios)"
 python3 scripts/analyze_nadistuti.py
 
 echo

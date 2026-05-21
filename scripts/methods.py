@@ -16,10 +16,11 @@ This module holds the four methods used alongside the plain Kendall's
                               critique that "uniform over 10! is implausible
                               because metrical constraints limit re-ordering."
 
-  3. bayes_factors            Likelihoods of the observed verse under three
+  3. profile_likelihood_ratios
+                              Likelihoods of the observed verse under three
                               generative models (uniform, meter-admissible,
                               Mallows-around-longitude-sort) and the
-                              corresponding Bayes factors.
+                              corresponding profile likelihood ratios.
 
 The verse-position river names with their inflected syllable counts (per the
 padapāṭha at https://xn--j2b3a4c.com/rigveda/10/75/5 and the agent-4 prosodic
@@ -306,7 +307,7 @@ def mantel_test(verse_rank: np.ndarray, geo_coords: np.ndarray,
 
 
 # ---------------------------------------------------------------------------
-# (4) Bayes factor model comparison
+# (4) Profile likelihood-ratio model comparison
 # ---------------------------------------------------------------------------
 
 def _kendall_inversions(sigma: np.ndarray, sigma0: np.ndarray) -> int:
@@ -351,11 +352,11 @@ def _log_mallows(sigma: np.ndarray, sigma0: np.ndarray, theta: float) -> float:
     return -theta * d - _mallows_log_z(theta, n)
 
 
-def bayes_factors(verse_rank: np.ndarray, geo_value: np.ndarray,
-                  shapes: list[int] = SYLLABLE_SHAPES,
-                  theta_grid: tuple[float, ...] = (0.5, 1.0, 1.5, 2.0, 3.0)) -> dict:
+def profile_likelihood_ratios(verse_rank: np.ndarray, geo_value: np.ndarray,
+                              shapes: list[int] = SYLLABLE_SHAPES,
+                              theta_grid: tuple[float, ...] = (0.5, 1.0, 1.5, 2.0, 3.0)) -> dict:
     """Compute log-likelihoods of the observed verse ordering under three
-    generative models, and report Bayes factors.
+    generative models, and report profile likelihood ratios.
 
     Models:
       M_uniform     : σ ∼ Uniform({0,...,n-1}!)
@@ -368,8 +369,12 @@ def bayes_factors(verse_rank: np.ndarray, geo_value: np.ndarray,
     geographically sort them?" The relevant "permutation" is how the
     geographic values are ordered relative to verse position.
 
-    Returns log-likelihoods and Bayes factors (M_geog vs M_uniform,
-    M_geog vs M_meter).
+    The ratio of M_geog against M_uniform / M_meter is a *profile*
+    likelihood ratio: θ is profiled out by maximising over
+    `theta_grid`, not integrated against a prior, so the ratio is an
+    upper bound on a Bayes factor and is reported only as
+    corroboration of the permutation tests. Returns per-θ
+    log-likelihoods and those likelihood ratios.
     """
     n = len(verse_rank)
     # σ_observed is the identity permutation (verse order itself).
@@ -405,16 +410,16 @@ def bayes_factors(verse_rank: np.ndarray, geo_value: np.ndarray,
     for theta in theta_grid:
         log_p_geog[float(theta)] = _log_mallows(sigma_obs, sigma0, theta)
 
-    # Bayes factors. BF(M_a vs M_b) = exp(log_p_a - log_p_b).
-    bf_geog_vs_uniform = {
+    # Profile likelihood ratios. LR(M_a vs M_b) = exp(log_p_a - log_p_b).
+    lr_geog_vs_uniform = {
         f"theta={th}": float(np.exp(lp - log_p_uniform))
         for th, lp in log_p_geog.items()
     }
-    bf_geog_vs_meter = {
+    lr_geog_vs_meter = {
         f"theta={th}": float(np.exp(lp - log_p_meter))
         for th, lp in log_p_geog.items()
     }
-    bf_meter_vs_uniform = float(np.exp(log_p_meter - log_p_uniform))
+    lr_meter_vs_uniform = float(np.exp(log_p_meter - log_p_uniform))
 
     return {
         "log_p_uniform": log_p_uniform,
@@ -423,11 +428,13 @@ def bayes_factors(verse_rank: np.ndarray, geo_value: np.ndarray,
         "n_admissible": n_admissible,
         "kendall_distance_observed": _kendall_inversions(sigma_obs, sigma0),
         "sigma0_orientation": sigma0_orientation,
-        "BF_geog_vs_uniform": bf_geog_vs_uniform,
-        "BF_geog_vs_meter": bf_geog_vs_meter,
-        "BF_meter_vs_uniform": bf_meter_vs_uniform,
-        "interpretation": (
-            "BF > 100: 'decisive' evidence (Jeffreys 1961 / Kass-Raftery 1995). "
-            "BF 10–100: 'strong'. BF 3–10: 'moderate'. BF 1–3: 'weak / no preference'."
+        "LR_geog_vs_uniform": lr_geog_vs_uniform,
+        "LR_geog_vs_meter": lr_geog_vs_meter,
+        "LR_meter_vs_uniform": lr_meter_vs_uniform,
+        "note": (
+            "These are profile likelihood ratios (theta maximised over the "
+            "grid), an upper bound on a Bayes factor that would integrate "
+            "theta against a prior; reported only as corroboration of the "
+            "permutation tests."
         ),
     }

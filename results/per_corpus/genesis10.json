@@ -48,7 +48,7 @@
     "null_p975": 0.09167773773653681
   },
   "constrained_perm_null": null,
-  "bayes_factors": {
+  "likelihood_ratios": {
     "log_p_uniform": -196.86618167289,
     "log_p_meter": -196.86618167289,
     "log_p_geog": {
@@ -61,22 +61,22 @@
     "n_admissible": 31469973260387937525653122354950764088012280797258232192163168247821107200000000000000,
     "kendall_distance_observed": 783,
     "sigma0_orientation": "ascending (west-to-east)",
-    "BF_geog_vs_uniform": {
+    "LR_geog_vs_uniform": {
       "theta=0.5": 1.683453693165868e-109,
       "theta=1.0": 2.4666756545648982e-267,
       "theta=1.5": 0.0,
       "theta=2.0": 0.0,
       "theta=3.0": 0.0
     },
-    "BF_geog_vs_meter": {
+    "LR_geog_vs_meter": {
       "theta=0.5": 1.683453693165868e-109,
       "theta=1.0": 2.4666756545648982e-267,
       "theta=1.5": 0.0,
       "theta=2.0": 0.0,
       "theta=3.0": 0.0
     },
-    "BF_meter_vs_uniform": 1.0,
-    "interpretation": "BF > 100: 'decisive' evidence (Jeffreys 1961 / Kass-Raftery 1995). BF 10\u2013100: 'strong'. BF 3\u201310: 'moderate'. BF 1\u20133: 'weak / no preference'.",
+    "LR_meter_vs_uniform": 1.0,
+    "note": "These are profile likelihood ratios (theta maximised over the grid), an upper bound on a Bayes factor that would integrate theta against a prior; reported only as corroboration of the permutation tests.",
     "meter_constraint_applies": false
   }
 }

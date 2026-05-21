@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Corpus-generic analyzer — runs the full method battery (Kendall's tau,
-Procrustes, Mantel, Bayes factors) on any enumerative corpus given as
-a CSV.
+Procrustes, Mantel, likelihood ratios) on any enumerative corpus
+given as a CSV.
 
 The corpus CSV must have columns:
     position             1..n verse/list position (integer)
@@ -37,10 +37,10 @@ from scipy.stats import kendalltau
 # Allow `from methods import ...` regardless of CWD.
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from methods import (
-    bayes_factors,
     constrained_perm_null,
     mantel_test,
     procrustes_test,
+    profile_likelihood_ratios,
 )
 
 SEED = 20260518
@@ -135,17 +135,17 @@ def main(argv: list[str]) -> int:
             verse_rank, lons, shapes=shapes, rng=rng,
         )
 
-    # ---- Bayes factors ----
+    # ---- Profile likelihood ratios ----
     # If --no-meter, set all shapes equal so the meter model collapses to
-    # uniform and BF(geog vs meter) becomes BF(geog vs uniform). The
-    # bayes_factors function returns both ratios; downstream consumers can
-    # ignore BF(geog vs meter) when meter doesn't apply.
+    # uniform and LR(geog vs meter) becomes LR(geog vs uniform). The
+    # profile_likelihood_ratios function returns both ratios; downstream
+    # consumers can ignore LR(geog vs meter) when meter doesn't apply.
     if args.no_meter or "syllable_count" not in df.columns:
         shapes = [1] * n
     else:
         shapes = df["syllable_count"].astype(int).tolist()
-    bf_res = bayes_factors(verse_rank, lons, shapes=shapes)
-    bf_res["meter_constraint_applies"] = not args.no_meter and "syllable_count" in df.columns
+    lr_res = profile_likelihood_ratios(verse_rank, lons, shapes=shapes)
+    lr_res["meter_constraint_applies"] = not args.no_meter and "syllable_count" in df.columns
 
     out = {
         "corpus_csv": args.corpus_csv,
@@ -163,7 +163,7 @@ def main(argv: list[str]) -> int:
         "procrustes": procrustes_res,
         "mantel": mantel_res,
         "constrained_perm_null": constrained_res,
-        "bayes_factors": bf_res,
+        "likelihood_ratios": lr_res,
     }
 
     Path(args.results_json).parent.mkdir(parents=True, exist_ok=True)
@@ -193,14 +193,14 @@ def main(argv: list[str]) -> int:
     else:
         print(f"\nConstrained-perm null: skipped (no syllable_count column).")
 
-    print(f"\nBayes factors  (σ₀ orientation: {bf_res['sigma0_orientation']}, "
-          f"Kendall dist = {bf_res['kendall_distance_observed']}/{n*(n-1)//2})")
-    print(f"  BF(geog vs uniform) range: "
-          f"{min(bf_res['BF_geog_vs_uniform'].values()):.2e} → "
-          f"{max(bf_res['BF_geog_vs_uniform'].values()):.2e}")
-    print(f"  BF(geog vs meter) range:   "
-          f"{min(bf_res['BF_geog_vs_meter'].values()):.2f} → "
-          f"{max(bf_res['BF_geog_vs_meter'].values()):.2f}")
+    print(f"\nProfile likelihood ratios  (σ₀ orientation: {lr_res['sigma0_orientation']}, "
+          f"Kendall dist = {lr_res['kendall_distance_observed']}/{n*(n-1)//2})")
+    print(f"  LR(geog vs uniform) range: "
+          f"{min(lr_res['LR_geog_vs_uniform'].values()):.2e} → "
+          f"{max(lr_res['LR_geog_vs_uniform'].values()):.2e}")
+    print(f"  LR(geog vs meter) range:   "
+          f"{min(lr_res['LR_geog_vs_meter'].values()):.2f} → "
+          f"{max(lr_res['LR_geog_vs_meter'].values()):.2f}")
 
     print(f"\nWrote {args.results_json}")
     return 0
