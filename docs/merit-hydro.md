@@ -4,12 +4,13 @@
 the MERIT-Hydro sensitivity check (`scripts/analyze_merit_sensitivity.py`,
 step 5 of `reproduce.sh`) runs offline with no download. This file
 documents how that CSV was produced, for anyone who wants to
-regenerate it from the raw NASA-SRTM tiles.
+regenerate it from the raw MERIT-Hydro tiles.
 
 ## What the check found
 
 Re-deriving the nine OSM-traced river centroids from MERIT-Hydro
-(NASA-SRTM-derived hydrography) gives a mean centroid shift of 75 km
+(an independent satellite-derived hydrography dataset) gives a mean
+centroid shift of 75 km
 from the OpenStreetMap polyline centroids. On the MERIT-Hydro
 centroids the headline result is essentially unchanged:
 τ = −0.867 (p = 0.0001), versus τ = −0.911 on the OSM centroids.

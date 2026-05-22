@@ -67,7 +67,7 @@ For example, the headline τ = −0.911:
 | 2 | `scripts/analyze_nadistuti.py` | `results/results.json` — RV 10.75.5: Kendall τ, permutation null, Procrustes, Mantel, constrained-permutation null, Bayes factors |
 | 3 | `scripts/analyze_corpus.py` | `results/per_corpus/*.json` — the same battery for each of the other four corpora |
 | 4 | `scripts/analyze_genesis_subsections.py` | `results/per_corpus/genesis10_subsections.json` — the Japheth/Ham/Shem within-branch analysis |
-| 5 | `scripts/analyze_merit_sensitivity.py` | `results/per_corpus/rv_merit.json` — RV result re-checked on NASA-SRTM-derived MERIT-Hydro centroids |
+| 5 | `scripts/analyze_merit_sensitivity.py` | `results/per_corpus/rv_merit.json` — RV result re-checked on MERIT-Hydro centroids |
 | 6 | `scripts/make_figure.py`, `make_comparative_figure.py` | `figures/*.pdf` |
 | 7 | `scripts/make_table.py` | `tables/sensitivity_table.tex` |
 | 8 | `verify_claims.py` | PASS/FAIL table over all 40 paper claims |
@@ -90,7 +90,7 @@ corpora/                     identification + coordinate CSVs for the
                              non-river corpora, with provenance columns
 data/
   river_coordinates.csv      RV 10.75.5 river centroids (OSM-derived)
-  river_coordinates_merit.csv  the same, from NASA-SRTM MERIT-Hydro
+  river_coordinates_merit.csv  the same, from MERIT-Hydro
   paleocourse_coords.csv     paleo-Sarasvatī / paleo-Sutlej coordinates
   osm_cache/                 cached OSM Overpass responses (offline reruns)
 results/
@@ -107,8 +107,9 @@ docs/merit-hydro.md      how to regenerate the MERIT-Hydro centroids
   offline and is reproducible without re-querying OSM. OSM data is
   © OpenStreetMap contributors, ODbL.
 - **MERIT-Hydro centroids** — `data/river_coordinates_merit.csv` is
-  derived from MERIT-Hydro (Yamazaki et al. 2019), a NASA-SRTM-derived
-  global hydrography product distributed under CC-BY-NC 4.0. The
+  derived from MERIT-Hydro (Yamazaki et al. 2019), a global
+  hydrography product built on satellite elevation data (including
+  NASA's SRTM), distributed under CC-BY-NC 4.0. The
   derived file inherits the non-commercial restriction; regenerating
   it from the raw tiles needs the steps in `docs/merit-hydro.md`.
 - **Corpus identifications** — every place/people identification in

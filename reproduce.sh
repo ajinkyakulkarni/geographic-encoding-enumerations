@@ -9,7 +9,7 @@
 # (scripts/fetch_river_coords_merit.py) — that is NOT run here; the
 # resulting data/river_coordinates_merit.csv is provided, and the
 # MERIT sensitivity check below consumes it. See docs/merit-hydro.md
-# to regenerate that file from the raw NASA-SRTM tiles.
+# to regenerate that file from the raw MERIT-Hydro tiles.
 #
 # Usage:  ./reproduce.sh
 # =====================================================================
@@ -40,7 +40,7 @@ echo "[4/8] Genesis 10 within-subsection analysis  (Japheth / Ham / Shem)"
 python3 scripts/analyze_genesis_subsections.py
 
 echo
-echo "[5/8] MERIT-Hydro sensitivity check  (NASA-SRTM-derived centroids)"
+echo "[5/8] MERIT-Hydro sensitivity check  (re-derived river centroids)"
 python3 scripts/analyze_merit_sensitivity.py
 
 echo

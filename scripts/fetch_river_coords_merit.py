@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
 Derive river centroids for the Ṛgveda 10.75.5 rivers from MERIT-Hydro
-(NASA-SRTM-derived global hydrography) upstream-drainage-area (upa)
-rasters. This supports the sensitivity check that the headline result
-is robust to switching the coordinate source from OpenStreetMap
-polylines to NASA-SRTM-derived hydrography.
+upstream-drainage-area (upa) rasters. MERIT-Hydro is a global
+hydrography product built on satellite elevation data, including
+NASA's SRTM. This supports the sensitivity check that the headline
+result is robust to switching the coordinate source from OpenStreetMap
+polylines to an independent satellite-derived dataset.
 
 For each river, the script:
   1. Reads the upa GeoTIFF tiles covering the bounding box of the
