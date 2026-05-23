@@ -2,6 +2,7 @@
 
 Replication materials for the paper **_Geographic encoding in premodern
 enumerations: a five-corpus quantitative test_** (Ajinkya Kulkarni, 2026).
+Published on Knowledge Commons, DOI: [10.17613/7s0j1-yzv46](https://doi.org/10.17613/7s0j1-yzv46).
 
 Every number, figure, and table in the paper is regenerated from raw
 inputs by the scripts here, and every numerical claim is
@@ -15,10 +16,12 @@ Nikāya I.213, the sixteen lands of Vendīdād Fargard 1, the twenty-three
 subject lands of Darius I's Bīsutūn inscription, and the Table of
 Nations in Genesis 10. The two Indic lists are strongly ordered
 east-to-west (Kendall τ = −0.911 and −0.783, both *p* < 10⁻⁴); Bīsutūn
-is ordered loosely by satrapal bloc; Genesis 10 is ordered within its
-three Noachic sub-sections but not across them; Vendīdād Fargard 1
-shows no geographic order at all. Genre predicts the outcome better
-than language family or date.
+is ordered loosely by satrapal bloc; Genesis 10 is ordered
+within two of its three Noachic sub-sections but not as a flat
+sequence; Vendīdād Fargard 1 shows no robust geographic order. Across
+the five, genre appears to track the outcome more closely than
+language family or date does — with n = 5 this is a suggested
+pattern, not an established finding.
 
 ## Reproduce everything in one command
 
