@@ -13,7 +13,7 @@ paper/*.toc
 paper/*.synctex.gz
 
 # MERIT-Hydro raw tiles (gigabytes; CC-BY-NC, per-user download —
-# see docs/MERIT_HYDRO_TODO.md). The derived CSV in data/ is tracked.
+# see docs/merit-hydro.md). The derived CSV in data/ is tracked.
 data/merit_hydro/
 
 # OS

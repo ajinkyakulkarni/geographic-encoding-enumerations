@@ -104,7 +104,7 @@ out geom;
 """
     headers = {
         "User-Agent": "nadistuti-paper-build/0.1 "
-                      "(academic research; contact: ajinkya.kulkarni@uah.edu)"
+                      "(academic research; contact: hello@ajinkya.ai)"
     }
     r = requests.post(OVERPASS_URL, data={"data": query},
                       headers=headers, timeout=180)
